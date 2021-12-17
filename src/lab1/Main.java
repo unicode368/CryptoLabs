@@ -1,3 +1,5 @@
+package lab1;
+
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.Arrays;
@@ -14,6 +16,6 @@ public class Main {
 
         String labText = sb.toString();
         byte[] decodedLabText = Base64.getDecoder().decode(labText);
-        System.out.println(decodedLabText.toString());
+        System.out.println(new String(decodedLabText));
     }
 }
