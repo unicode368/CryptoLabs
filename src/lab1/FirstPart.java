@@ -9,5 +9,12 @@ public class FirstPart implements EncryptedPart {
             toASCII.append((char)Integer.parseInt(str, 16));
         }
         char[] textForDecryption = toASCII.toString().toCharArray();
+        for (int i = 0; i < 256; i++) {
+            for (int j = 0; j < textForDecryption.length; j++) {
+                textForDecryption[j] = (char) (textForDecryption[j] ^ i);
+            }
+            System.out.println(textForDecryption);
+            textForDecryption = toASCII.toString().toCharArray();
+        }
     }
 }
