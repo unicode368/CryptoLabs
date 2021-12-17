@@ -3,14 +3,11 @@ package lab1;
 public class FirstPart implements EncryptedPart {
     @Override
     public void process(String encryptedText) {
-        char[] chars = encryptedText.toCharArray();
-        char[] charsCopy = chars;
-        for (int i = 1; i < 64; i++) {
-            for (int j = 0; j < chars.length; j++) {
-                charsCopy[j] = (char) (charsCopy[j] ^ i);
-            }
-            System.out.println(charsCopy);
-            charsCopy = chars;
+        StringBuilder toASCII = new StringBuilder();
+        for (int i = 0; i < encryptedText.length(); i += 2) {
+            String str = encryptedText.substring(i, i + 2);
+            toASCII.append((char)Integer.parseInt(str, 16));
         }
+        char[] textForDecryption = toASCII.toString().toCharArray();
     }
 }

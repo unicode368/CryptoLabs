@@ -22,6 +22,7 @@ public class Main {
         String firstPart = rawEncryptedText.split("\n")[0];
         String secondPart = rawEncryptedText.split("\n")[1];
         new FirstPart().process(firstPart);
-        new SecondPart().process(secondPart);
+        //new SecondPart().process(secondPart);
     }
+
 }
