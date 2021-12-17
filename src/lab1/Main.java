@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Base64;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         String stringBytes = FileReader
                 .extractRawData("1lab.txt", Charset.defaultCharset());
         StringBuilder sb = new StringBuilder();

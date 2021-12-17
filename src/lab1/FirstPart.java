@@ -2,7 +2,7 @@ package lab1;
 
 public class FirstPart implements EncryptedPart {
     @Override
-    public void process(String encryptedText) {
+    public void process(String encryptedText) throws InterruptedException {
         StringBuilder toASCII = new StringBuilder();
         for (int i = 0; i < encryptedText.length(); i += 2) {
             String str = encryptedText.substring(i, i + 2);
@@ -14,6 +14,9 @@ public class FirstPart implements EncryptedPart {
                 textForDecryption[j] = (char) (textForDecryption[j] ^ i);
             }
             System.out.println(textForDecryption);
+            //Very important line. You'll never see an answer without it
+            System.out.println();
+            Thread.sleep(1000);
             textForDecryption = toASCII.toString().toCharArray();
         }
     }

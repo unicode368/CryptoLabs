@@ -1,15 +1,11 @@
 package lab1;
 
+import java.util.Base64;
+
 public class SecondPart implements EncryptedPart{
     @Override
     public void process(String encryptedText) {
-        char[] chars = encryptedText.toCharArray();
-        for (int i = 0; i < 256; i++) {
-            for (int j = 0; j < chars.length; j++) {
-                chars[j] = (char) (chars[j] ^ i);
-            }
-            System.out.println(chars);
-            chars = encryptedText.toCharArray();
-        }
+        String decodedLabText = new String(Base64.getDecoder().decode(encryptedText));
+        System.out.println(decodedLabText);
     }
 }
