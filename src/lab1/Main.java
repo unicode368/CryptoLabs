@@ -15,7 +15,10 @@ public class Main {
                 .forEach(s -> sb.append((char) Integer.parseInt(s, 2)));
 
         String labText = sb.toString();
-        byte[] decodedLabText = Base64.getDecoder().decode(labText);
-        System.out.println(new String(decodedLabText));
+        String decodedLabText = new String(Base64.getDecoder().decode(labText));
+        //System.out.println(decodedLabText);
+        String rawEncryptedText = decodedLabText
+                .substring(decodedLabText.lastIndexOf('.') + 2);
+        System.out.println(rawEncryptedText);
     }
 }
