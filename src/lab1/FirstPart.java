@@ -4,13 +4,13 @@ public class FirstPart implements EncryptedPart {
     @Override
     public void process(String encryptedText) {
         char[] chars = encryptedText.toCharArray();
-        for (int i = 0; i < 26; i++) {
-            String a = "";
-            for (int j = 0; j < chars.length; j++){
-                a += chars[j]--;
+        char[] charsCopy = chars;
+        for (int i = 1; i < 64; i++) {
+            for (int j = 0; j < chars.length; j++) {
+                charsCopy[j] = (char) (charsCopy[j] ^ i);
             }
-            System.out.println(a);
+            System.out.println(charsCopy);
+            charsCopy = chars;
         }
-        //System.out.println(encryptedText);
     }
 }
