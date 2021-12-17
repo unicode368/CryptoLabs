@@ -21,8 +21,8 @@ public class Main {
                 .substring(decodedLabText.lastIndexOf('.') + 2);
         String firstPart = rawEncryptedText.split("\n")[0];
         String secondPart = rawEncryptedText.split("\n")[1];
-        new FirstPart().process(firstPart);
-        //new SecondPart().process(secondPart);
+        String hint = new FirstPart().process(firstPart);
+        new SecondPart().process(secondPart, hint);
     }
 
 }
