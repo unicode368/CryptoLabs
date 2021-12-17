@@ -19,6 +19,9 @@ public class Main {
         //System.out.println(decodedLabText);
         String rawEncryptedText = decodedLabText
                 .substring(decodedLabText.lastIndexOf('.') + 2);
-        System.out.println(rawEncryptedText);
+        String firstPart = rawEncryptedText.split("\n")[0];
+        String secondPart = rawEncryptedText.split("\n")[1];
+        new FirstPart().process(firstPart);
+        new SecondPart().process(secondPart);
     }
 }
