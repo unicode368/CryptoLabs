@@ -43,12 +43,17 @@ public class SecondPart {
             }
         }
         System.out.println("Довжина ключа - " + keyLength);
-        //System.out.println(aliquotNumbers.toString());
-        /*String key = "a";
+
+        //Let's assume all chars of the key are allocated between 0 and 127 (ASCII).
+        //After xor'ing a letter with such key, we'll receive a char in range of 32..127.
+        //Let's brute force all possible cases and count how many decrypted chars are in
+        //range of 32..127. The key with the biggest number of such decrypted chars wins.
+        String key = bruteForce(encryptedText);
+        System.out.println(key);
         for (int i = 0; i < chars.length; i++) {
             chars[i] = (char) (chars[i] ^ key.charAt(i % key.length()));
         }
-        System.out.println(chars);*/
+        System.out.println(chars);
         //System.out.println(encryptedText);
         //System.out.println(hint);
     }
@@ -91,9 +96,39 @@ public class SecondPart {
                 break;
             }
         }
-
         return indexes;
     }
 
+    public String bruteForce(String text) {
+        String trueKey = "";
+        String key = "";
+        char[] textToChar = text.toCharArray();
+        int max = 0;
+        int count = 0;
+        for (int i = 32; i < 127; i++) {
+            key += (char) i;
+            for (int j = 32; j < 127; j++) {
+                key += (char) j;
+                for (int k = 32; k < 127; k++) {
+                    count = 0;
+                    key += (char) k;
+                    for (int l = 0; l < text.length(); l++) {
+                        textToChar[l] = (char) (textToChar[l] ^ key.charAt(l % key.length()));
+                        if (textToChar[l] >= 32 && textToChar[l] < 127) {
+                            count++;
+                        }
+                    }
+                    if (max < count) {
+                        max = count;
+                        trueKey = key;
+                    }
+                    key = key.substring(0, key.length() - 1);
+                }
+                key = key.substring(0, key.length() - 1);
+            }
+            key = "";
+        }
+        return trueKey;
+    }
 
 }
