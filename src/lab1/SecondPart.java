@@ -1,10 +1,7 @@
 package lab1;
 
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Base64;
-import java.util.HashMap;
+import java.util.*;
 
 public class SecondPart {
     public void process(String encryptedText, String hint) {
@@ -33,7 +30,20 @@ public class SecondPart {
             getAllDiffereces(aliquotNumbers,
                     bigramsTrigramsAndOccurences.get(name));
         }
-        System.out.println(aliquotNumbers.toString());
+        int max = Collections.max(aliquotNumbers);
+        HashMap<Integer, Integer> keyLengths =
+                possibleKeyLengthsAndMultiplicity(max, aliquotNumbers);
+        int aliquotCount = 0;
+        int keyLength = 0;
+        for (Integer name: keyLengths.keySet()) {
+            Integer value = keyLengths.get(name);
+            if (value > aliquotCount) {
+                aliquotCount = value;
+                keyLength = name;
+            }
+        }
+        System.out.println("Довжина ключа - " + keyLength);
+        //System.out.println(aliquotNumbers.toString());
         /*String key = "a";
         for (int i = 0; i < chars.length; i++) {
             chars[i] = (char) (chars[i] ^ key.charAt(i % key.length()));
@@ -41,6 +51,22 @@ public class SecondPart {
         System.out.println(chars);*/
         //System.out.println(encryptedText);
         //System.out.println(hint);
+    }
+
+    public HashMap<Integer, Integer> possibleKeyLengthsAndMultiplicity
+            (int max, ArrayList<Integer> numbers) {
+        HashMap<Integer, Integer> keyLengths = new HashMap<>();
+        int count = 0;
+        for (int i = 2; i < max; i++) {
+            count = 0;
+            for (int j = 0; j < numbers.size(); j++) {
+                if (numbers.get(j) % i == 0) {
+                    count++;
+                }
+            }
+            keyLengths.put(i, count);
+        }
+        return keyLengths;
     }
 
     public void getAllDiffereces(ArrayList<Integer> aliquotNumbers,
