@@ -114,7 +114,11 @@ public class SecondPart {
                     key += (char) k;
                     for (int l = 0; l < text.length(); l++) {
                         textToChar[l] = (char) (textToChar[l] ^ key.charAt(l % key.length()));
-                        if (textToChar[l] >= 32 && textToChar[l] < 127) {
+                        //According to the previous result (with capital letter at the end =)),
+                        //counting according to both ranges 60..95 and 97..122 can't give you
+                        //an accurate message (especially a link part). That's why I decided to
+                        //go with 97..122 only =)
+                        if (textToChar[l] >= 97 && textToChar[l] <= 122) {
                             count++;
                         }
                     }
