@@ -11,27 +11,29 @@ public class SecondPart {
         encryptedText = new String(Base64.getDecoder().decode(encryptedText));
         char[] chars = encryptedText.toCharArray();
         //searching for bigrams
-        HashMap<String, ArrayList<Integer>> bigramsAndOccurences =
+        HashMap<String, ArrayList<Integer>> bigramsTrigramsAndOccurences =
                 new HashMap<>();
         //ArrayList<String> bigrams = new ArrayList<>();
-        ArrayList<String> trigrams = new ArrayList<>();
         for (int i = 0; i < encryptedText.length() - 2; i++) {
             String bigram = encryptedText.substring(i, i + 2);
             ArrayList<Integer> occurences = countMatches(encryptedText, bigram);
             if (occurences.size() > 1) {
-                bigramsAndOccurences.put(bigram, occurences);
+                bigramsTrigramsAndOccurences.put(bigram, occurences);
             }
         }
         for (int i = 0; i < encryptedText.length() - 3; i++) {
-            String bigram = encryptedText.substring(i, i + 3);
-            if (countMatches(encryptedText, bigram).size() > 1) {
-                trigrams.add(bigram);
+            String trigram = encryptedText.substring(i, i + 3);
+            ArrayList<Integer> occurences = countMatches(encryptedText, trigram);
+            if (countMatches(encryptedText, trigram).size() > 1) {
+                bigramsTrigramsAndOccurences.put(trigram, occurences);
             }
         }
-        for (String name: bigramsAndOccurences.keySet()) {
-            String value = bigramsAndOccurences.get(name).toString();
-            System.out.println(name + " - " + value);
+        ArrayList<Integer> aliquotNumbers = new ArrayList<>();
+        for (String name: bigramsTrigramsAndOccurences.keySet()) {
+            getAllDiffereces(aliquotNumbers,
+                    bigramsTrigramsAndOccurences.get(name));
         }
+        System.out.println(aliquotNumbers.toString());
         /*String key = "a";
         for (int i = 0; i < chars.length; i++) {
             chars[i] = (char) (chars[i] ^ key.charAt(i % key.length()));
@@ -39,6 +41,15 @@ public class SecondPart {
         System.out.println(chars);*/
         //System.out.println(encryptedText);
         //System.out.println(hint);
+    }
+
+    public void getAllDiffereces(ArrayList<Integer> aliquotNumbers,
+                                 ArrayList<Integer> numbers) {
+        for (int i = 0; i < numbers.size(); i++) {
+            for (int j = 0; j < i; j++) {
+                aliquotNumbers.add(numbers.get(i) - numbers.get(j));
+            }
+        }
     }
 
     public static ArrayList<Integer> countMatches(String text, String str) {
