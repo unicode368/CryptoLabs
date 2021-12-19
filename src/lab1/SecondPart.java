@@ -49,13 +49,11 @@ public class SecondPart {
         //Let's brute force all possible cases and count how many decrypted chars are in
         //range of 32..127. The key with the biggest number of such decrypted chars wins.
         String key = bruteForce(encryptedText);
-        System.out.println(key);
+        System.out.println("Знайдений ключ - " + key);
         for (int i = 0; i < chars.length; i++) {
             chars[i] = (char) (chars[i] ^ key.charAt(i % key.length()));
         }
         System.out.println(chars);
-        //System.out.println(encryptedText);
-        //System.out.println(hint);
     }
 
     public HashMap<Integer, Integer> possibleKeyLengthsAndMultiplicity
