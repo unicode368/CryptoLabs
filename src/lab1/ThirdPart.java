@@ -12,10 +12,15 @@ public class ThirdPart {
 
     public String process(String encryptedText) {
         char[] chars = encryptedText.toCharArray();
-        HashMap<Character, Character> decipherPairs = new HashMap<>();
+        HashMap<Character, Character> decipherPairs = getDecipherPairs();
         for (int i = 0; i < chars.length; i++) {
             chars[i] = decipherPairs.get(chars[i]);
         }
         return String.valueOf(chars);
     }
+
+    public HashMap<Character, Character> getDecipherPairs() {
+        return new HashMap<>();
+    }
+
 }

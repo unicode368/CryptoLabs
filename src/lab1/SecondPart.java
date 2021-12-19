@@ -10,7 +10,6 @@ public class SecondPart {
         //searching for bigrams
         HashMap<String, ArrayList<Integer>> bigramsTrigramsAndOccurences =
                 new HashMap<>();
-        //ArrayList<String> bigrams = new ArrayList<>();
         for (int i = 0; i < encryptedText.length() - 2; i++) {
             String bigram = encryptedText.substring(i, i + 2);
             ArrayList<Integer> occurences = countMatches(encryptedText, bigram);
