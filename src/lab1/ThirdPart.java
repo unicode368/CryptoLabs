@@ -1,5 +1,7 @@
 package lab1;
 
+import java.util.HashMap;
+
 public class ThirdPart {
     final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private int populationSize = 0;
@@ -9,7 +11,11 @@ public class ThirdPart {
     private int mutationsCount = 0;
 
     public String process(String encryptedText) {
-        return "";
+        char[] chars = encryptedText.toCharArray();
+        HashMap<Character, Character> decipherPairs = new HashMap<>();
+        for (int i = 0; i < chars.length; i++) {
+            chars[i] = decipherPairs.get(chars[i]);
+        }
+        return String.valueOf(chars);
     }
-    
 }
