@@ -16,13 +16,27 @@ public class Main {
 
         String labText = sb.toString();
         String decodedLabText = new String(Base64.getDecoder().decode(labText));
-        //System.out.println(decodedLabText);
+        String taskOnly = decodedLabText
+                .substring(0, decodedLabText.lastIndexOf('.') + 2);
+        System.out.println(taskOnly);
         String rawEncryptedText = decodedLabText
                 .substring(decodedLabText.lastIndexOf('.') + 2);
         String firstPart = rawEncryptedText.split("\n")[0];
+        System.out.println(firstPart);
+        System.out.println();
         String secondPart = rawEncryptedText.split("\n")[1];
-        String hint = new FirstPart().process(firstPart);
-        new SecondPart().process(secondPart, hint);
+        String thirdPart = rawEncryptedText.split("\n")[2];
+        String fourthPart = rawEncryptedText.split("\n")[3];
+        String hint1 = new FirstPart().process(firstPart);
+        System.out.println(hint1);
+        System.out.println();
+        System.out.println(secondPart);
+        System.out.println();
+        String hint2 = new SecondPart().process(secondPart);
+        System.out.println(hint2);
+        System.out.println();
+        System.out.println(thirdPart);
+        new ThirdPart().process(secondPart);
     }
 
 }

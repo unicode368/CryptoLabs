@@ -4,7 +4,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class SecondPart {
-    public void process(String encryptedText, String hint) {
+    public String process(String encryptedText) {
         encryptedText = new String(Base64.getDecoder().decode(encryptedText));
         char[] chars = encryptedText.toCharArray();
         //searching for bigrams
@@ -53,7 +53,7 @@ public class SecondPart {
         for (int i = 0; i < chars.length; i++) {
             chars[i] = (char) (chars[i] ^ key.charAt(i % key.length()));
         }
-        System.out.println(chars);
+        return String.valueOf(chars);
     }
 
     public HashMap<Integer, Integer> possibleKeyLengthsAndMultiplicity
