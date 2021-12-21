@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class ThirdPart {
     final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private int populationSize = 0;
+    private int populationSize = 150;
     private int topPopulation = 0;
     private int stabilityIntervals = 0;
     private int crossoverCount = 0;
@@ -15,7 +15,9 @@ public class ThirdPart {
         char[] chars = encryptedText.toCharArray();
         HashMap<Character, Character> decipherPairs = getDecipherPairs();
         Set<String> alphabets = new HashSet<>();
-        getRandomAlphabet();
+        while (alphabets.size() < populationSize) {
+            alphabets.add(getRandomAlphabet());
+        }
         /*for (int i = 0; i < chars.length; i++) {
             chars[i] = decipherPairs.get(chars[i]);
         }*/
