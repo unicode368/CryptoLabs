@@ -33,6 +33,38 @@ public class ThirdPart {
         return String.valueOf(chars);
     }
 
+    public double fitness(String decryptedText, HashMap<String, Double> bigrams) {
+        double fitness = 0;
+        double count = 0;
+        int i = 0;
+        double sum = 0;
+        double[] counts = new double[bigrams.size()];
+
+        for (Map.Entry<String, Double> entry : bigrams.entrySet()) {
+            String str = entry.getKey();
+            int lastIndex = 0;
+            count = 0;
+
+            while (lastIndex != -1) {
+
+                lastIndex = decryptedText.indexOf(str, lastIndex);
+
+                if (lastIndex != -1) {
+                    count++;
+                    lastIndex += str.length();
+                }
+            }
+            counts[i] = count;
+            i++;
+            sum = count;
+        }
+        i = 0;
+        for (Double value : bigrams.values()) {
+            fitness += Math.pow(value - counts[i] / sum, 2);
+        }
+        return fitness;
+    }
+
     public HashMap<Character, Character> getDecipherPairs() {
         return new HashMap<>();
     }
