@@ -8,16 +8,17 @@ import java.util.stream.Collectors;
 public class ThirdPart {
     final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private int populationSize = 150;
-    private int topPopulation = 20;
-    private int stabilityIntervals = 5;
-    private int crossoverCount = 0;
-    private int mutationsCount = 0;
+    private int topPopulation = 50;
+    //private int stabilityIntervals = 10;
+    //private int crossoverCount = 100;
+    private int mutationsProb = 50;
 
     public String process(String encryptedText) {
         char[] chars = encryptedText.toCharArray();
 
         HashMap<String, Double> bigrams = new HashMap<>();
         Set<String> alphabets = new HashSet<>();
+        String bestAlphabet = "";
         try {
             bigrams = getBigrams();
         } catch (Exception e) {
@@ -26,11 +27,20 @@ public class ThirdPart {
         while (alphabets.size() < populationSize) {
             alphabets.add(getRandomAlphabet());
         }
-        /*for (int i = 0; i < chars.length; i++) {
-            chars[i] = decipherPairs.get(chars[i]);
-        }*/
-        HashMap<Character, Character> decipherPairs = getDecipherPairs();
+        int generation = 0;
+        while (generation < topPopulation) {
+
+        }
+
         return String.valueOf(chars);
+    }
+
+    public String decrypt(String textForDecryption, String randomAlphabet) {
+        for (int i = 0; i < alphabet.length(); i++) {
+            textForDecryption = textForDecryption.replaceAll(alphabet.substring(i, i + 1),
+                    randomAlphabet.substring(i, i + 1));
+        }
+        return textForDecryption;
     }
 
     public double fitness(String decryptedText, HashMap<String, Double> bigrams) {
@@ -65,9 +75,6 @@ public class ThirdPart {
         return fitness;
     }
 
-    public HashMap<Character, Character> getDecipherPairs() {
-        return new HashMap<>();
-    }
 
     public HashMap<String, Double> getBigrams() throws IOException {
         HashMap<String, Double> occurences = new HashMap<>();
