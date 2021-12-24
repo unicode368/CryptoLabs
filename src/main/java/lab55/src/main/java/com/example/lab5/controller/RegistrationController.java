@@ -1,8 +1,6 @@
 package com.example.lab5.controller;
 
-import com.ua.faculty.dto.UserDTO;
-import com.ua.faculty.exceptions.UserAlreadyExistsException;
-import com.ua.faculty.service.RegistrationService;
+import com.example.lab5.service.RegistrationService;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import javax.validation.Valid;
 
 @Controller
 @AllArgsConstructor
