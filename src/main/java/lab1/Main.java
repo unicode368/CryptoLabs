@@ -3,7 +3,7 @@ package lab1;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.Arrays;
-import java.util.Base64;
+//import java.util.Base64;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -11,10 +11,10 @@ public class Main {
                 .extractRawData("1lab.txt", Charset.defaultCharset());
         StringBuilder sb = new StringBuilder();
 
-        Arrays.stream(stringBytes.split("(?<=\\G.{8})"))
-                .forEach(s -> sb.append((char) Integer.parseInt(s, 2)));
+        /*Arrays.stream(stringBytes.split("(?<=\\G.{8})"))
+                .forEach(s -> sb.append((char) Integer.parseInt(s, 2)));*/
 
-        String labText = sb.toString();
+        /*String labText = sb.toString();
         String decodedLabText = new String(Base64.getDecoder().decode(labText));
         String taskOnly = decodedLabText
                 .substring(0, decodedLabText.lastIndexOf('.') + 2);
@@ -36,7 +36,7 @@ public class Main {
         System.out.println(hint2);
         System.out.println();
         System.out.println(thirdPart);
-        new ThirdPart().process(secondPart);
+        new ThirdPart().process(secondPart);*/
     }
 
 }
