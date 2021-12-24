@@ -1,5 +1,7 @@
 package com.example.lab5.service;
 
+import com.example.lab5.entity.User;
+import com.example.lab5.entity.UserInfo;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -43,60 +45,12 @@ public class UserService implements UserDetailsService {
                 || userRepository.findByLogin(login).isPresent();
     }
 
-    public User changeBlockStatus(Long id) {
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new UsernameNotFoundException(""));
-        user.setBlocked(!user.getBlocked());
-        userRepository.save(user);
-        return user;
-    }
-
-    public User getTeacherByFullName(String fullName) {
-        Set<User> teachers = getAllTeachers();
-        return teachers.stream()
-                .filter(teacher -> teacher.getUserInfo()
-                        .toString().equals(fullName))
-                .findFirst()
-                .orElseThrow(() -> new UsernameNotFoundException(""));
-    }
-
-    public User getUserById(Long id) {
-        return userRepository.findById(id)
-                .orElseThrow(() -> new UsernameNotFoundException(""));
-    }
-
-    public Set<User> getAllTeachers() {
-        return userRepository.findAllByRoles(roleRepository
-                .findByName("teacher")
-                .orElseThrow(() -> new UsernameNotFoundException("")))
-                .orElseThrow(() -> new UsernameNotFoundException(""));
-    }
 
     public User getUserByLogin(String login) {
         return userRepository
                 .findByLogin(login).get();
     }
 
-    public Set<User> getUsersByRoleName(String roleName) {
-        return userRepository.findAllByRoles(
-                roleRepository.findByName(roleName)
-                        .orElseThrow(() -> new UsernameNotFoundException(""))
-        ).get();
-    }
-
-    public void enrollForCourse(String studentLogin, Long courseId)
-            throws StudentAlreadyEnrolledException {
-        CourseRating rating = new CourseRating();
-        User student = userRepository.findByLogin(studentLogin)
-                .orElseThrow(() -> new UsernameNotFoundException(""));
-        if (courseRatingService
-                    .checkIfUserIsEnrolled(student.getId(), courseId)) {
-            throw new StudentAlreadyEnrolledException("");
-        }
-        rating.setUser(student);
-        rating.getId().setStudentId(student.getId());
-        courseRatingService.enrollForCourse(rating, courseId);
-    }
 
 
 }
