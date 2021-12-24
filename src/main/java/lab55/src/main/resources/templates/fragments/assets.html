@@ -1,0 +1,13 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<th:block th:fragment="assets">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+    $("#button1").click(function() {
+        window.location.replace(window.location.pathname + '?lang=ua');
+    });
+    $("#button2").click(function() {
+        window.location.replace(window.location.pathname + '?lang=en');
+    });
+</script>
+</th:block>
