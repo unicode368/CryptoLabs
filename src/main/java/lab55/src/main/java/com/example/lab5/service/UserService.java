@@ -2,6 +2,9 @@ package com.example.lab5.service;
 
 import com.example.lab5.entity.User;
 import com.example.lab5.entity.UserInfo;
+import com.example.lab5.repository.RoleRepository;
+import com.example.lab5.repository.UserInfoRepository;
+import com.example.lab5.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

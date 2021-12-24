@@ -1,6 +1,7 @@
 package com.example.lab5.service;
 
 import com.example.lab5.entity.Course;
+import com.example.lab5.repository.CourseRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
