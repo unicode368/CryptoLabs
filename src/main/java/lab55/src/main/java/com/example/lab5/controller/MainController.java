@@ -1,7 +1,6 @@
 package com.example.lab5.controller;
 
-import com.ua.faculty.dto.UserDTO;
-import com.ua.faculty.service.CourseService;
+import com.example.lab5.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
