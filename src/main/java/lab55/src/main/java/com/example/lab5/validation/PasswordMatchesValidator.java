@@ -1,6 +1,6 @@
 package com.example.lab5.validation;
 
-import com.ua.faculty.dto.UserDTO;
+import com.example.lab5.dto.UserDTO;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
