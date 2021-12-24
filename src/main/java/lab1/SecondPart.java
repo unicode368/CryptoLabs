@@ -3,7 +3,7 @@ package lab1;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-/*public class SecondPart {
+public class SecondPart {
     public String process(String encryptedText) {
         encryptedText = new String(Base64.getDecoder().decode(encryptedText));
         char[] chars = encryptedText.toCharArray();
@@ -132,4 +132,4 @@ import java.util.*;
         return trueKey;
     }
 
-}*/
+}

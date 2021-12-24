@@ -3,30 +3,30 @@ package lab1;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.*;
-//import java.util.stream.Collectors;
+import java.util.stream.Collectors;
 
 public class ThirdPart {
-    //final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    //private int populationSize = 150;
-    //private int topPopulation = 50;
+    final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private int populationSize = 150;
+    private int topPopulation = 50;
     //private int stabilityIntervals = 10;
-    //private int crossoverCount = 100;
-   // private int mutationsProb = 50;
+    private int crossoverCount = 100;
+    private int mutationsProb = 50;
 
     public String process(String encryptedText) {
         char[] chars = encryptedText.toCharArray();
 
-        /*HashMap<String, Double> bigrams = new HashMap<>();
-        Set<String> alphabets = new HashSet<>();*/
+        HashMap<String, Double> bigrams = new HashMap<>();
+        Set<String> alphabets = new HashSet<>();
         String bestAlphabet = "";
-       /* try {
+        try {
             bigrams = getBigrams();
         } catch (Exception e) {
             System.exit(1);
         }
         while (alphabets.size() < populationSize) {
             alphabets.add(getRandomAlphabet());
-        }*/
+        }
         int generation = 0;
         /*while (generation < topPopulation) {
 
@@ -35,13 +35,13 @@ public class ThirdPart {
         return String.valueOf(chars);
     }
 
-   /* public String decrypt(String textForDecryption, String randomAlphabet) {
+    public String decrypt(String textForDecryption, String randomAlphabet) {
         for (int i = 0; i < alphabet.length(); i++) {
             textForDecryption = textForDecryption.replaceAll(alphabet.substring(i, i + 1),
                     randomAlphabet.substring(i, i + 1));
         }
         return textForDecryption;
-    }*/
+    }
 
     public double fitness(String decryptedText, HashMap<String, Double> bigrams) {
         double fitness = 0;
@@ -76,7 +76,7 @@ public class ThirdPart {
     }
 
 
-    /*public HashMap<String, Double> getBigrams() throws IOException {
+    public HashMap<String, Double> getBigrams() throws IOException {
         HashMap<String, Double> occurences = new HashMap<>();
         int sum = 0;
         String[] bigramsData = FileReader
@@ -90,9 +90,9 @@ public class ThirdPart {
         int finalSum = sum;
         occurences.replaceAll((k, v) -> v / finalSum);
         return occurences;
-    }*/
+    }
 
-   /* public String getRandomAlphabet() {
+    public String getRandomAlphabet() {
         String newAlphabet = "";
         ArrayList<Character> tempChars = new ArrayList<>(
                 alphabet.chars()
@@ -107,6 +107,6 @@ public class ThirdPart {
             tempChars.remove(choosenChar);
         }
         return newAlphabet;
-    }*/
+    }
 
 }
