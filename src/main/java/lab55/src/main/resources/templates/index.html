@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <title>Welcome</title>
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/lang-buttons.css" />
+    <link rel="stylesheet" href="/css/auth-buttons.css" />
+</head>
+<body>
+<div class="header">
+    <div class="header__bg"></div>
+    <h1 class="header__title" th:text="#{home.greeting}"></h1>
+    <div class="header__log" >
+        <languages th:insert="fragments/language_buttons.html :: languages"></languages>
+        <svg class="header__log--icon" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path>
+        </svg>
+    </div>
+</div>
+
+<div class="about">
+    <div class="about__title">
+        <h2 class="about__title--text"
+            sec:authorize="isAnonymous()" th:utext="#{home.options}"></h2>
+    </div>
+    <div class="auth-buttons about__text">
+        <input type="button" onclick="location.href='/login';"
+               th:value="#{home.option1}" sec:authorize="isAnonymous()"/>
+        <input type="button" onclick="location.href='/registration';"
+               th:value="#{home.option2}" sec:authorize="isAnonymous()"/>
+    </div>
+    <div class="courses-list">
+        <h2>Доступні курси:</h2>
+        <div th:each="course, iterStat : ${courses}"
+             th:if="${course.endDate.isAfter(localDate) && iterStat.index < 2}">
+            <h2 th:text="${course.name}"></h2>
+            <h3 th:text="${course.theme}"></h3>
+            <p th:text="${course.info}"></p>
+            <h3 th:text="${course.startDate}"></h3>
+            <h3 th:text="${course.endDate}"></h3>
+            <a sec:authorize="hasAuthority('user')"
+               th:href="'/courses/' + ${course.id}">Переглянути</a>
+            <div class="whitespace"></div>
+        </div>
+        <a th:href="'/courses'">Більше курсів</a>
+    </div>
+</div>
+<th:block th:include="fragments/assets :: assets"></th:block>
+</body>
+</html>
