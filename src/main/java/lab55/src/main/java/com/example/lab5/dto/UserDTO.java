@@ -1,5 +1,9 @@
 package com.example.lab5.dto;
 
+import com.example.lab5.validation.PasswordMatches;
+import com.example.lab5.validation.ValidEmail;
+import com.example.lab5.validation.ValidLogin;
+import com.example.lab5.validation.ValidMobilePhone;
 import lombok.*;
 
 import javax.validation.constraints.NotEmpty;
