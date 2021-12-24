@@ -1,6 +1,7 @@
 package com.example.lab5.controller;
 
 import com.example.lab5.dto.UserDTO;
+import com.example.lab5.exceptions.UserAlreadyExistsException;
 import com.example.lab5.service.RegistrationService;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
@@ -23,8 +24,6 @@ public class RegistrationController {
 
     private final RegistrationService registrationService;
 
-    @Autowired
-    protected AuthenticationManager authenticationManager;
 
     @SneakyThrows
     @PostMapping(value = "/registration")
