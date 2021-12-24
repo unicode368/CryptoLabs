@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class CourseService {
 
     private final CourseRepository courseRepository;
-    
+
     public Iterable<Course> getAllCourses() {
         return courseRepository.findAll();
     }
