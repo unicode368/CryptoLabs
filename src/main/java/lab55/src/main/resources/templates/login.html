@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="/css/lang-buttons.css" />
+</head>
+<div class="wrapper">
+    <form class="login" th:action="@{/login}" method="POST">
+        <h1 th:utext="#{login.form.title}"></h1>
+        <input type="text" name="Username" th:placeholder="#{login.form.username}" autofocus/>
+        <i class="fa fa-user"></i>
+        <input type="password" name="Password" th:placeholder="#{login.form.password}" />
+        <i class="fa fa-key"></i>
+<!--        <a href="#">Forgot your password?</a> -->
+        <button>
+            <i class="spinner"></i>
+            <span th:utext="#{login.form.title}" class="state"></span>
+        </button>
+        <div th:text="${error != null} ? #{wrong.credentials}"></div>
+    </form>
+    <p th:each="error: ${#fields.errors('global')}"
+       th:text="#{wrong.credentials}"></p>
+    <languages th:insert="fragments/language_buttons.html :: languages"></languages>
+    <th:block th:include="fragments/assets :: assets"></th:block>
+</div>
+</html>
