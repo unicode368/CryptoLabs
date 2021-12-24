@@ -1,5 +1,6 @@
 package com.example.lab5.controller;
 
+import com.example.lab5.dto.UserDTO;
 import com.example.lab5.service.RegistrationService;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
