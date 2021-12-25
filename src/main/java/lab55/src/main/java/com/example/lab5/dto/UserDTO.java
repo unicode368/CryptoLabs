@@ -1,9 +1,6 @@
 package com.example.lab5.dto;
 
-import com.example.lab5.validation.PasswordMatches;
-import com.example.lab5.validation.ValidEmail;
-import com.example.lab5.validation.ValidLogin;
-import com.example.lab5.validation.ValidMobilePhone;
+import com.example.lab5.validation.*;
 import lombok.*;
 
 import javax.validation.constraints.NotEmpty;
@@ -37,6 +34,7 @@ public class UserDTO {
 
     @NotNull
     @NotEmpty
+    @ValidPassword
     private String password;
     private String matchingPassword;
 

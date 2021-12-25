@@ -51,6 +51,8 @@
                     <input type="text" th:field="*{password}" th:placeholder="#{registration.password.data}" required>
                     <p th:each="error: ${#fields.errors('global')}"
                        th:text="#{password.invalid}"></p>
+                    <p th:each="error: ${#fields.errors('global')}"
+                       th:text="#{password.wrong}"></p>
                 </div>
                 <div class="input-box">
                     <span class="details" th:text="#{registration.confirm.password}"></span>
