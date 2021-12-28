@@ -16,14 +16,20 @@ public class API {
 
     public void createAccount(String id) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(serverURL + "/createacc?id=" + id)).build();
-
+        HttpRequest request = HttpRequest.newBuilder().uri(URI
+                .create(serverURL + "/createacc?id=" + id)).build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         JSONObject myObject = new JSONObject(response.body());
-        System.out.println(myObject); // Your json object
-        //String encoding = con.getContentEncoding();
-        //encoding = encoding == null ? "UTF-8" : encoding;
-        //String body = (String) IOUtils.toString(in, encoding);
-        //System.out.println(body);
+        System.out.println(myObject);
+    }
+
+    public void play(String id, int bet, long number) throws IOException, InterruptedException {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder().uri(URI
+                .create(serverURL + "/playLcg?id=" + id + "&bet=" +
+                        bet + "&number=" + number)).build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        JSONObject myObject = new JSONObject(response.body());
+        System.out.println(myObject);
     }
 }
