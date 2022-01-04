@@ -9,6 +9,12 @@ public class PasswordStorage {
     }
 
     public String getPassword(StorageType storageType) {
+        switch (storageType) {
+            case TOP1M: break;
+            case TOP100: break;
+            case REALLY_RANDOM: break;
+            case MY_PASSWORD: break;
+        }
         return "";
     }
 }
