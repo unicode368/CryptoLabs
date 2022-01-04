@@ -16,6 +16,8 @@ public class PasswordGenerator {
 
         } else if (randomNumber <= top100passwordProbability) {
 
+        } else if (randomNumber <= top1MpasswordProbability) {
+            
         }
         return "";
     }
