@@ -14,6 +14,8 @@ public class PasswordGenerator {
         double randomNumber = new Random().nextDouble();
         if (randomNumber <= reallyRandomPasswordProbability) {
 
+        } else if (randomNumber <= top100passwordProbability) {
+
         }
         return "";
     }
