@@ -8,7 +8,7 @@ public class PasswordStorage {
         MY_PASSWORD
     }
 
-    public String getPassword(StorageType storageType) {
+    public static String getPassword(StorageType storageType) {
         switch (storageType) {
             case TOP1M: break;
             case TOP100: break;
