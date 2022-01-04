@@ -25,6 +25,5 @@ public class PasswordGenerator {
             return PasswordStorage.getPassword(
                     PasswordStorage.StorageType.MY_PASSWORD);
         }
-        return "";
     }
 }
