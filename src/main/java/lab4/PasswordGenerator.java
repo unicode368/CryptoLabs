@@ -7,4 +7,6 @@ public class PasswordGenerator {
             = (50 + new Random().nextInt(41)) / 100;
     final double top100passwordProbability
             = (5 + new Random().nextInt(6)) / 100;
+    final double reallyRandomPasswordProbability
+            = (1 + new Random().nextInt(5)) / 100;
 }
