@@ -13,9 +13,10 @@ public class PasswordGenerator {
     public String generate() {
         double randomNumber = new Random().nextDouble();
         if (randomNumber <= reallyRandomPasswordProbability) {
-
+            return PasswordStorage.getPassword(
+                    PasswordStorage.StorageType.REALLY_RANDOM);
         } else if (randomNumber <= top100passwordProbability) {
-
+            
         } else if (randomNumber <= top1MpasswordProbability) {
 
         } else {
