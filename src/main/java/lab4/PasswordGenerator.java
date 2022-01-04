@@ -19,7 +19,8 @@ public class PasswordGenerator {
             return PasswordStorage.getPassword(
                     PasswordStorage.StorageType.TOP100);
         } else if (randomNumber <= top1MpasswordProbability) {
-
+            return PasswordStorage.getPassword(
+                    PasswordStorage.StorageType.TOP1M);
         } else {
 
         }
