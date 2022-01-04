@@ -12,6 +12,9 @@ public class PasswordGenerator {
 
     public String generate() {
         double randomNumber = new Random().nextDouble();
+        if (randomNumber <= reallyRandomPasswordProbability) {
+
+        }
         return "";
     }
 }
