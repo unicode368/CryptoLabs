@@ -11,6 +11,7 @@ public class PasswordGenerator {
             = (1 + new Random().nextInt(5)) / 100;
 
     public String generate() {
+        double randomNumber = new Random().nextDouble();
         return "";
     }
 }
