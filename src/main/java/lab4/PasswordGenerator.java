@@ -28,6 +28,6 @@ public class PasswordGenerator {
     }
 
     public String genReallyRandomPassword() {
-
+        return "";
     }
 }
