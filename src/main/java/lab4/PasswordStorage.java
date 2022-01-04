@@ -7,4 +7,8 @@ public class PasswordStorage {
         REALLY_RANDOM,
         MY_PASSWORD
     }
+
+    public String getPassword(StorageType storageType) {
+        return "";
+    }
 }
