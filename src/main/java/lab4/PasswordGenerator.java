@@ -22,7 +22,8 @@ public class PasswordGenerator {
             return PasswordStorage.getPassword(
                     PasswordStorage.StorageType.TOP1M);
         } else {
-
+            return PasswordStorage.getPassword(
+                    PasswordStorage.StorageType.MY_PASSWORD);
         }
         return "";
     }
