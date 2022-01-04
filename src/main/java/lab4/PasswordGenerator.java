@@ -26,4 +26,8 @@ public class PasswordGenerator {
                     PasswordStorage.StorageType.MY_PASSWORD);
         }
     }
+
+    public String genReallyRandomPassword() {
+
+    }
 }
