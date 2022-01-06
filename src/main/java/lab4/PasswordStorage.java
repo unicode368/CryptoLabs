@@ -30,6 +30,7 @@ public class PasswordStorage {
                 try {
                     passwordNum = 1 + new Random().nextInt(100);
                     password = Files.readAllLines(Paths.get("file.txt")).get(passwordNum);
+                    password = password.substring(0, password.length() - 1);
                     return password;
                 } catch (IOException e) {
                     System.exit(1);
