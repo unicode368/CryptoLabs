@@ -14,19 +14,19 @@ public class PasswordStorage {
         MY_PASSWORD
     }
 
-    final String[] firstPart = {"Albedo", "Amber", "Barbara", "Beidou", "Bennett",
+    static final String[] firstPart = {"Albedo", "Amber", "Barbara", "Beidou", "Bennett",
                "Childe", "Diluc", "Diona", "Eula", "Fischl", "Ganyu", "HuTao", "Jean",
                "Kazuha", "Kokomi", "Klee", "Lisa", "Mona", "Ningguang", "Qiqi",
                "Raiden", "Razor", "Rosaria", "Thoma", "Venti", "Xiangling", "Xiao",
                "Xinyan", "Yoimia", "Kaeya", "Zhongli", "Shenhe", "YunJin", "Gorou",
                "Itto"};
 
-    final String[] secondPart = {"Hairy", "Smelly", "Big", "Humongus", "Gigantic",
+    static final String[] secondPart = {"Hairy", "Smelly", "Big", "Humongus", "Gigantic",
             "Hard", "Veiny", "Long", "Girthy", "Sexy", "Glorious", "Monster", "Sussy",
             "Purple", "Swollen", "Funny", "Soggy", "Old", "Massive", "Sticky",
             "Dangerous", "Tiny", "Racist", "Obese", "Sexist", "French"};
 
-    final String[] thirdPart = {"Cocogoat", "Vases", "Claymore", "Traveler", "Artifacts",
+    static final String[] thirdPart = {"Cocogoat", "Vases", "Claymore", "Traveler", "Artifacts",
             "Family", "Polearm", "Сaliphate", "Shaft", "Ukraine", "Bow", "Crate", "Xbox",
             "Warcrimes", "Dad", "Nuclearwarhead", "Catalyst", "Wand", "Twitteraccount", "Mosque",
             "Primogems", "KlaptykZemliTaDvaRaba", "Bom", "Meat", "Gun", "Chest"};
@@ -67,6 +67,10 @@ public class PasswordStorage {
                     (char) (33 + new Random().nextInt(94))));
         }
         return password.toString();
+    }
+
+    public static String genHumanLikePassword() {
+        String first = firstPart
     }
 
 
