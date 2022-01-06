@@ -25,7 +25,7 @@ public class PasswordStorage {
                     password = password.substring(0, password.length() - 1);
                     return password;
                 } catch (IOException e) {
-                    System.exit(1);
+                    e.printStackTrace();
                 }
             case TOP100:
                 try {
