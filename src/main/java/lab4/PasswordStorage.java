@@ -25,7 +25,14 @@ public class PasswordStorage {
                 } catch (IOException e) {
                     System.exit(1);
                 }
-            case TOP100: break;
+            case TOP100:
+                try {
+                    passwordNum = 1 + new Random().nextInt(100);
+                    password = Files.readAllLines(Paths.get("file.txt")).get(passwordNum);
+                    return password;
+                } catch (IOException e) {
+                    System.exit(1);
+                }
             case REALLY_RANDOM: break;
             case MY_PASSWORD: break;
         }
