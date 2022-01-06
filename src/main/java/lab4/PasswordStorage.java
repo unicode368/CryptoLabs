@@ -73,6 +73,7 @@ public class PasswordStorage {
         String first = firstPart[new Random().nextInt(firstPart.length)];
         String second = secondPart[new Random().nextInt(secondPart.length)];
         String third = thirdPart[new Random().nextInt(thirdPart.length)];
+        return first + second + third;
     }
 
 
