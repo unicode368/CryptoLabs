@@ -70,7 +70,7 @@ public class PasswordStorage {
     }
 
     public static String genHumanLikePassword() {
-        String first = firstPart
+        String first = firstPart[new Random().nextInt(firstPart.length)];
     }
 
 
