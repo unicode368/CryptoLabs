@@ -20,7 +20,7 @@ public class PasswordStorage {
             case TOP1M:
                 int passwordNum = 1 + new Random().nextInt(1000000);
                 try (Stream<String> lines = Files.lines(Paths.get("file.txt"))) {
-                    password = lines.skip(passwordNum).findFirst().get();
+                    password = lines.skip(passwordNum - 1).findFirst().get();
                     password = password.substring(0, password.length() - 1);
                     return password;
                 } catch (IOException e) {
