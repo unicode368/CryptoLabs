@@ -34,6 +34,6 @@ public class PasswordGenerator {
             password.append(Character.valueOf(
                     (char) (33 + new Random().nextInt(94))));
         }
-        return "";
+        return password.toString();
     }
 }
