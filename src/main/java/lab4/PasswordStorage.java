@@ -41,4 +41,14 @@ public class PasswordStorage {
         }
         return "";
     }
+
+    public String genReallyRandomPassword() {
+        StringBuilder password = new StringBuilder();
+        int randomLength = 8 + new Random().nextInt(13);
+        for (int i = 0; i < randomLength; i++) {
+            password.append(Character.valueOf(
+                    (char) (33 + new Random().nextInt(94))));
+        }
+        return password.toString();
+    }
 }
