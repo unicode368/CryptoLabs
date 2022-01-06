@@ -25,7 +25,12 @@ public class PasswordStorage {
             "Hard", "Veiny", "Long", "Girthy", "Sexy", "Glorious", "Monster", "Sussy",
             "Purple", "Swollen", "Funny", "Soggy", "Old", "Massive", "Sticky",
             "Dangerous", "Tiny", "Racist", "Obese", "Sexist", "French"};
-    
+
+    final String[] thirdPart = {"Cocogoat", "Vases", "Claymore", "Traveler", "Artifacts",
+            "Family", "Polearm", "Сaliphate", "Shaft", "Ukraine", "Bow", "Crate", "Xbox",
+            "Warcrimes", "Dad", "Nuclearwarhead", "Catalyst", "Wand", "Twitteraccount", "Mosque",
+            "Primogems", "KlaptykZemliTaDvaRaba", "Bom", "Meat", "Gun", "Chest"};
+
     public static String getPassword(StorageType storageType) {
         String password;
         switch (storageType) {
