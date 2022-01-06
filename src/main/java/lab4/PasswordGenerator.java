@@ -28,6 +28,8 @@ public class PasswordGenerator {
     }
 
     public String genReallyRandomPassword() {
+        StringBuilder password = new StringBuilder();
+        int randomLength = 8 + new Random().nextInt(13);
         return "";
     }
 }
