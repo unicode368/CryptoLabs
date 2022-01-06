@@ -14,6 +14,13 @@ public class PasswordStorage {
         MY_PASSWORD
     }
 
+    final String[] firstPart = {"Albedo", "Amber", "Barbara", "Beidou", "Bennett",
+               "Childe", "Diluc", "Diona", "Eula", "Fischl", "Ganyu", "HuTao", "Jean",
+               "Kazuha", "Kokomi", "Klee", "Lisa", "Mona", "Ningguang", "Qiqi",
+               "Raiden", "Razor", "Rosaria", "Thoma", "Venti", "Xiangling", "Xiao",
+               "Xinyan", "Yoimia", "Kaeya", "Zhongli", "Shenhe", "YunJin", "Gorou",
+               "Itto"};
+
     public static String getPassword(StorageType storageType) {
         String password;
         switch (storageType) {
@@ -51,4 +58,6 @@ public class PasswordStorage {
         }
         return password.toString();
     }
+
+
 }
