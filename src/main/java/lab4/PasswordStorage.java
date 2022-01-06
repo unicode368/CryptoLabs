@@ -19,7 +19,8 @@ public class PasswordStorage {
         switch (storageType) {
             case TOP1M:
                 int passwordNum = 1 + new Random().nextInt(1000000);
-                try (Stream<String> lines = Files.lines(Paths.get("file.txt"))) {
+                try (Stream<String> lines = Files.lines(Paths
+                        .get("10-million-password-list-top-1000000.txt"))) {
                     password = lines.skip(passwordNum - 1).findFirst().get();
                     password = password.substring(0, password.length() - 1);
                     return password;
@@ -29,7 +30,7 @@ public class PasswordStorage {
             case TOP100:
                 try {
                     passwordNum = 1 + new Random().nextInt(100);
-                    password = Files.readAllLines(Paths.get("file.txt")).get(passwordNum);
+                    password = Files.readAllLines(Paths.get("top100Passwords.txt")).get(passwordNum);
                     password = password.substring(0, password.length() - 1);
                     return password;
                 } catch (IOException e) {
