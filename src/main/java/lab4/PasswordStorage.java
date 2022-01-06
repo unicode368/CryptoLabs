@@ -21,6 +21,11 @@ public class PasswordStorage {
                "Xinyan", "Yoimia", "Kaeya", "Zhongli", "Shenhe", "YunJin", "Gorou",
                "Itto"};
 
+    final String[] secondPart = {"Hairy", "Smelly", "Big", "Humongus", "Gigantic",
+            "Hard", "Veiny", "Long", "Girthy", "Sexy", "Glorious", "Monster", "Sussy",
+            "Purple", "Swollen", "Funny", "Soggy", "Old", "Massive", "Sticky",
+            "Dangerous", "Tiny", "Racist", "Obese", "Sexist", "French"};
+    
     public static String getPassword(StorageType storageType) {
         String password;
         switch (storageType) {
