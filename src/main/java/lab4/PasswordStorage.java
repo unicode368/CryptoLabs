@@ -36,13 +36,13 @@ public class PasswordStorage {
                 } catch (IOException e) {
                     System.exit(1);
                 }
-            case REALLY_RANDOM: break;
+            case REALLY_RANDOM: return genReallyRandomPassword();
             case MY_PASSWORD: break;
         }
         return "";
     }
 
-    public String genReallyRandomPassword() {
+    public static String genReallyRandomPassword() {
         StringBuilder password = new StringBuilder();
         int randomLength = 8 + new Random().nextInt(13);
         for (int i = 0; i < randomLength; i++) {
