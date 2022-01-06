@@ -73,7 +73,18 @@ public class PasswordStorage {
         String first = firstPart[new Random().nextInt(firstPart.length)];
         String second = secondPart[new Random().nextInt(secondPart.length)];
         String third = thirdPart[new Random().nextInt(thirdPart.length)];
-        return first + second + third;
+        String password = first + second + third;
+        if (new Random().nextBoolean()) {
+            if (password.contains("o")) {
+                password =password.replaceAll("o", "0");
+            }
+        }
+        if (new Random().nextBoolean()) {
+            if (password.contains("l")) {
+                password =password.replaceAll("l", "1");
+            }
+        }
+        return ;
     }
 
 
