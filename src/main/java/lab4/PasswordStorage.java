@@ -81,10 +81,10 @@ public class PasswordStorage {
         }
         if (new Random().nextBoolean()) {
             if (password.contains("l")) {
-                password =password.replaceAll("l", "1");
+                password = password.replaceAll("l", "1");
             }
         }
-        return ;
+        return password;
     }
 
 
