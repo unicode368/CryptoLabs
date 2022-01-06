@@ -54,7 +54,7 @@ public class PasswordStorage {
                     System.exit(1);
                 }
             case REALLY_RANDOM: return genReallyRandomPassword();
-            case MY_PASSWORD: break;
+            case MY_PASSWORD: return genHumanLikePassword();
         }
         return "";
     }
