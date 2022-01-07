@@ -1,9 +1,23 @@
 package lab4;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class Main {
-    public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
-            System.out.println(new PasswordGenerator().generate());
+    public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter("weakHash.csv"));
+        for (int i = 0; i < 100000; i++) {
+            writer.write(md5Hash(new PasswordGenerator().generate()));
         }
+
+        writer.close();
+    }
+
+    public static String md5Hash(String password) {
+
     }
 }
