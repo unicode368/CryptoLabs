@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 public class ThirdPart {
     final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private int populationSize = 150;
-    //private int stabilityIntervals = 10;
     private int crossoverCount = 100;
     private int mutationsProb = 50;
 
