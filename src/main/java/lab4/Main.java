@@ -9,10 +9,10 @@ import java.security.NoSuchAlgorithmException;
 
 public class Main {
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("weakHash.csv"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("weakHash2.csv"));
         for (int i = 0; i < 100000; i++) {
             writer.write(encrypt(new PasswordGenerator().generate(),
-                               "MD5") + "\n");
+                               "SHA-1") + "\n");
         }
 
         writer.close();
@@ -20,8 +20,9 @@ public class Main {
 
     public static String encrypt(String password, String algorithmName)
             throws NoSuchAlgorithmException {
-        String hash = new BigInteger(1, MessageDigest
-                .getInstance(algorithmName)
+        MessageDigest digest = MessageDigest.getInstance(algorithmName);
+        if (algorithmName.equals())
+        String hash = new BigInteger(1,
                 .digest(password.getBytes())).toString(16);
         while (hash.length() < 32 ){
             hash = "0" + hash;
