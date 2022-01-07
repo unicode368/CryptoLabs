@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
 public class Main {
-    public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
+    public static void main(String[] args) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter("strongHash.csv"));
         for (int i = 0; i < 100000; i++) {
             writer.write(encryptBcrypt(new PasswordGenerator().generate()) + "\n");
@@ -41,6 +41,6 @@ public class Main {
     }
 
     public static String encryptBcrypt(String password) {
-        
+
     }
 }
