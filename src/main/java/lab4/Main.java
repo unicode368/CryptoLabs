@@ -17,10 +17,11 @@ public class Main {
         writer.close();
     }
 
-    public static String md5Hash(String password) throws NoSuchAlgorithmException {
-        String hash = new BigInteger(1, MessageDigest.getInstance("MD5")
-                .digest((new PasswordGenerator().generate()
-                        + "\n").getBytes())).toString(16);
+    public static String md5Hash(String password, String algorithmName)
+            throws NoSuchAlgorithmException {
+        String hash = new BigInteger(1, MessageDigest
+                .getInstance(algorithmName)
+                .digest(password.getBytes())).toString(16);
         while (hash.length() < 32 ){
             hash = "0" + hash;
         }
