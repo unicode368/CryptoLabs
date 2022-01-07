@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -22,9 +23,9 @@ public class Main {
     public static String encrypt(String password, String algorithmName)
             throws NoSuchAlgorithmException {
         MessageDigest digest = MessageDigest.getInstance(algorithmName);
+        byte salt[] = new byte[20];
         if (algorithmName.equals("SHA-1")) {
             SecureRandom random = new SecureRandom();
-            byte salt[] = new byte[20];
             random.nextBytes(salt);
             digest.reset();
             digest.update(salt);
@@ -33,6 +34,9 @@ public class Main {
                 digest.digest(password.getBytes())).toString(16);
         while (hash.length() < 32 ){
             hash = "0" + hash;
+        }
+        if (algorithmName.equals("SHA-1")) {
+            return hash + "," + new String(salt, StandardCharsets.UTF_8);
         }
         return hash;
     }
