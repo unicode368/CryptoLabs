@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 
 public class Main {
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
@@ -21,9 +22,13 @@ public class Main {
     public static String encrypt(String password, String algorithmName)
             throws NoSuchAlgorithmException {
         MessageDigest digest = MessageDigest.getInstance(algorithmName);
-        if (algorithmName.equals())
+        if (algorithmName.equals("SHA-1")) {
+            SecureRandom random = new SecureRandom();
+            byte salt[] = new byte[20];
+            random.nextBytes(salt);
+        }
         String hash = new BigInteger(1,
-                .digest(password.getBytes())).toString(16);
+                digest.digest(password.getBytes())).toString(16);
         while (hash.length() < 32 ){
             hash = "0" + hash;
         }
