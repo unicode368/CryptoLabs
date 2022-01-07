@@ -45,13 +45,14 @@ public class PasswordStorage {
                     e.printStackTrace();
                 }
             case TOP100:
+                passwordNum = 1 + new Random().nextInt(100);
                 try {
-                    passwordNum = 1 + new Random().nextInt(100);
-                    password = Files.readAllLines(Paths.get("top100Passwords.txt")).get(passwordNum);
+                    password = Files.readAllLines(Paths
+                            .get("top100Passwords.txt")).get(passwordNum - 1);
                     password = password.substring(0, password.length() - 1);
                     return password;
                 } catch (IOException e) {
-                    System.exit(1);
+                    e.printStackTrace();
                 }
             case REALLY_RANDOM: return genReallyRandomPassword();
             case MY_PASSWORD: return genHumanLikePassword();
