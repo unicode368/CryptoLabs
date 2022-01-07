@@ -11,13 +11,13 @@ public class Main {
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
         BufferedWriter writer = new BufferedWriter(new FileWriter("weakHash.csv"));
         for (int i = 0; i < 100000; i++) {
-            writer.write(md5Hash(new PasswordGenerator().generate()) + "\n");
+            writer.write(encrypt(new PasswordGenerator().generate()) + "\n");
         }
 
         writer.close();
     }
 
-    public static String md5Hash(String password, String algorithmName)
+    public static String encrypt(String password, String algorithmName)
             throws NoSuchAlgorithmException {
         String hash = new BigInteger(1, MessageDigest
                 .getInstance(algorithmName)
