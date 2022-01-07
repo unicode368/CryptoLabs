@@ -11,7 +11,7 @@ import java.security.SecureRandom;
 
 public class Main {
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("weakHash2.csv"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("notStrongEnoughHash.csv"));
         for (int i = 0; i < 100000; i++) {
             writer.write(encrypt(new PasswordGenerator().generate(),
                                "SHA-1") + "\n");
