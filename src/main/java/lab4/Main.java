@@ -26,6 +26,8 @@ public class Main {
             SecureRandom random = new SecureRandom();
             byte salt[] = new byte[20];
             random.nextBytes(salt);
+            digest.reset();
+            digest.update(salt);
         }
         String hash = new BigInteger(1,
                 digest.digest(password.getBytes())).toString(16);
