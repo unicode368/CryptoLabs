@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
         BufferedWriter writer = new BufferedWriter(new FileWriter("weakHash.csv"));
         for (int i = 0; i < 100000; i++) {
-            writer.write(md5Hash(new PasswordGenerator().generate()));
+            writer.write(md5Hash(new PasswordGenerator().generate()) + "\n");
         }
 
         writer.close();
