@@ -13,8 +13,7 @@ public class Main {
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
         BufferedWriter writer = new BufferedWriter(new FileWriter("strongHash.csv"));
         for (int i = 0; i < 100000; i++) {
-            writer.write(encrypt(new PasswordGenerator().generate(),
-                               "SHA-1") + "\n");
+            writer.write(encryptBcrypt(new PasswordGenerator().generate()) + "\n");
         }
 
         writer.close();
