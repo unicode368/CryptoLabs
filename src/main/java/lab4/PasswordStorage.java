@@ -1,5 +1,7 @@
 package lab4;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -36,10 +38,11 @@ public class PasswordStorage {
         switch (storageType) {
             case TOP1M:
                 int passwordNum = 1 + new Random().nextInt(1000000);
-                try (Stream<String> lines = Files.lines(Paths
-                        .get("10-million-password-list-top-1000000.txt"))) {
-                    password = lines.skip(passwordNum - 1).findFirst().get();
-                    password = password.substring(0, password.length() - 1);
+                try (BufferedReader br = new BufferedReader(
+                        new FileReader("10-million-password-list-top-1000000.txt"))) {
+                    for (int i = 0; i < passwordNum; i++)
+                        br.readLine();
+                    password = br.readLine();
                     return password;
                 } catch (IOException e) {
                     e.printStackTrace();
