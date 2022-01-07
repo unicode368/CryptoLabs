@@ -1,5 +1,7 @@
 package lab4;
 
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -41,6 +43,7 @@ public class Main {
     }
 
     public static String encryptBcrypt(String password) {
-
+        String salt = BCrypt.gensalt();
+        return BCrypt.hashpw(password, salt) + "," + salt;
     }
 }
