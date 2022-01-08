@@ -47,12 +47,19 @@ Dictionary-пошук впорався менше, ніж за 3 хвилини,
 
 ### Bcrypt crack
 Тепер взламаємо файл з сильним хешем - hashcat64.exe -m 3200 -a 3 -O --force strong.csv.
+Посилання на сильний хеш - https://t.me/c/1664103404/1144.
 
 Результати роботи:
 
 ![bruteforce strong](https://github.com/unicode368/CryptoLabs/blob/main/src/main/java/lab4/Capture3.PNG)
 
-За півгодини із 100 тисяч паролів не було відновлено жодного.  
+За півгодини із 100 тисяч паролів не було відновлено жодного.
+
+Обробимо файл за допомогою dictionary-методу: hashcat64.exe -m 3200 -a 0 -O --force strong.csv 10-million-password-list-top-1000000.txt
+
+Результати роботи:
+
+ 
 
 
  
