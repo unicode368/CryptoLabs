@@ -5,8 +5,8 @@ import java.math.BigInteger;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-        String id = "6";
-        new API().createAccount(id);
+        String id = "163";
+        //new API().createAccount(id);
         int x0 = new API().play(id, 1, 1860214296);
         int x1 = new API().play(id, 1, 1860214296);
         int x2 = new API().play(id, 1, 1860214296);
@@ -16,38 +16,18 @@ public class Main {
         */
         long x01 = x0 - x1;
         long x12 = x1 - x2;
-        int a = (int) new BigInteger(String.valueOf(modInverse(x01,
+        long a = (int) new BigInteger(String.valueOf(modInverse(x01,
                 Lcg.m))).multiply(new BigInteger(String.valueOf(x12)))
                 .mod(new BigInteger(String.valueOf(Lcg.m)))
                 .longValue();
-        int c = (int) (-2065691657L + 193188616L * a);
+        long c = (int)(-2065691657L + 193188616L * a);
         System.out.println(a);
         System.out.println(c);
-        for (int i = 10; i < 2000; i++) {
+        for (int i = 0; i < 2; i++) {
             int next = new Lcg(x2, a, c).getNext();
-            int trueValue = new API().play(id, 1, next);
+            int trueValue = new API().play(id, 996, next);
             x2 = next;
         }
-
-        /*System.out.println(next);
-        if (trueValue != next) {
-            System.out.println("I really should just give up ._.");
-        } else {
-            System.out.println("Hooray!Lab works");
-        }*/
-       // long a =  (inverseA * a2) % (long) Math.pow(2, 32);
-        //long c = 313310610 - 1582423745 * -851249410;
-        //System.out.println(a543);
-        //System.out.println(c);
-        /*System.out.println(kInt);
-        System.out.println(k);
-        System.out.println(Long.MAX_VALUE);
-        System.out.println(Integer.MAX_VALUE);*/
-        /*System.out.println(x0);
-        System.out.println(x1);
-        System.out.println(x2);
-        System.out.println(a1);
-        System.out.println(a2);*/
     }
 
     static long modInverse(long a, long m) {
