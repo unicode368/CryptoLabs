@@ -43,7 +43,16 @@
 
 ![dictionary result](https://github.com/unicode368/CryptoLabs/blob/main/src/main/java/lab4/Capture2.PNG)
 
-Dictionary-пошук впорався менше, ніж за 3 хвилини, і з 65226 паролів було знайдено 55390. 
+Dictionary-пошук впорався менше, ніж за 3 хвилини, і з 65226 паролів було знайдено 55390.
+
+### Bcrypt crack
+Тепер взламаємо файл з сильним хешем - hashcat64.exe -m 3200 -a 3 -O --force strong.csv.
+
+Результати роботи:
+
+![bruteforce strong](https://github.com/unicode368/CryptoLabs/blob/main/src/main/java/lab4/Capture3.PNG)
+
+За півгодини із 100 тисяч паролів не було відновлено жодного.  
 
 
  
