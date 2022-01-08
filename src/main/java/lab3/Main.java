@@ -1,20 +1,30 @@
 package lab3;
 
 import java.io.IOException;
+import java.math.BigInteger;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         //new API().createAccount("63467");
-        new API().play("63467", 1, 251157735);
-        //System.out.println();
-        //{"money":1000,"deletionTime":"2022-01-08T15:08:05.8044726Z","id":"63467"}
-        //{"realNumber":90393952,"message":"You lost this time","account":{"money":999,
-        // "deletionTime":"2022-01-08T15:08:05.8044726Z","id":"63467"}}
-        //{"realNumber":-1582423745,"message":"You lost this time","account":{"money":998,
-        // "deletionTime":"2022-01-08T15:08:05.8044726Z","id":"63467"}}
-        //{"realNumber":313310610,"message":"You lost this time","account":
-        // {"money":997,"deletionTime":"2022-01-08T15:08:05.8044726Z","id":"63467"}}
+        new API().play("63467", 1, 1860214296);
+        //x0: {"realNumber":-193188616,"message":"You lost this time","account":{"money":999,
+        // "deletionTime":"2022-01-08T20:49:08.9668497Z","id":"63467"}}
+        //x1: {"realNumber":-2065691657,"message":"You lost this time","account":{"money":998,
+        // "deletionTime":"2022-01-08T20:49:08.9668497Z","id":"63467"}}
+        //x2: {"realNumber":1806891242,"message":"You lost this time","account":{"money":997,
+        // "deletionTime":"2022-01-08T20:49:08.9668497Z","id":"63467"}}
+        BigInteger x01 = new BigInteger(String.valueOf(1323305433))
+                .subtract(new BigInteger(String.valueOf(2012014948)));
+        BigInteger x12 = new BigInteger(String.valueOf(2012014948))
+                .add(new BigInteger(String.valueOf(2093439629)));
+        //long inverseA = modInverse(a1, (long) Math.pow(2, 32));
         //System.out.println(a);
+        /*long a543 = (modInverse(a1,(long) Math.pow(2, 32))
+                % (long) Math.pow(2, 32) * (a2 % (long) Math.pow(2, 32))) % (long) Math.pow(2, 32);*/
+       // long a =  (inverseA * a2) % (long) Math.pow(2, 32);
+        //long c = 313310610 - 1582423745 * -851249410;
+        //System.out.println(a543);
+        //System.out.println(c);
         /*System.out.println(kInt);
         System.out.println(k);
         System.out.println(Long.MAX_VALUE);
@@ -34,23 +44,17 @@ public class Main {
             return 0;
 
         while (a > 1) {
-            // q is quotient
             long q = a / m;
-
             long t = m;
 
-            // m is remainder now, process
-            // same as Euclid's algo
             m = a % m;
             a = t;
             t = y;
 
-            // Update x and y
             y = x - q * y;
             x = t;
         }
 
-        // Make x positive
         if (x < 0)
             x += m0;
 
