@@ -6,15 +6,15 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         //new API().createAccount("63467");
         new API().play("63467", 1, 251157735);
-        System.out.println();
-        //{"money":1000,"deletionTime":"2022-01-08T14:03:50.9633993Z","id":"63467"}
-        //{"realNumber":-2029718102,"message":"You lost this time","account":{"money":999,
-        //        "deletionTime":"2022-01-08T14:03:50.9633993Z","id":"63467"}
-        //{"realNumber":254486785,"message":"You lost this time","account":
-        // {"money":998,"deletionTime":"2022-01-08T14:03:50.9633993Z","id":"63467"}}
-        /*long a = (-677747287 + 998743310) * (modInverse((long) -998743310 - 1748853791,
-                (long) Math.pow(2, 32))) % (long) Math.pow(2, 32);
-        System.out.println(a);*/
+        //System.out.println();
+        //{"money":1000,"deletionTime":"2022-01-08T15:08:05.8044726Z","id":"63467"}
+        //{"realNumber":90393952,"message":"You lost this time","account":{"money":999,
+        // "deletionTime":"2022-01-08T15:08:05.8044726Z","id":"63467"}}
+        //{"realNumber":-1582423745,"message":"You lost this time","account":{"money":998,
+        // "deletionTime":"2022-01-08T15:08:05.8044726Z","id":"63467"}}
+        //{"realNumber":313310610,"message":"You lost this time","account":
+        // {"money":997,"deletionTime":"2022-01-08T15:08:05.8044726Z","id":"63467"}}
+        //System.out.println(a);
         /*System.out.println(kInt);
         System.out.println(k);
         System.out.println(Long.MAX_VALUE);
