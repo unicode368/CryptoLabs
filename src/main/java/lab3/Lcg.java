@@ -4,11 +4,11 @@ import java.math.BigInteger;
 
 public class Lcg {
     public static final long m = (long) Math.pow(2, 32);
-    int a;
-    int c;
+    long a;
+    long c;
     int last;
 
-    Lcg(int current, int a, int c) {
+    Lcg(int current, long a, long c) {
         this.a = a;
         this.c = c;
         last = current;
