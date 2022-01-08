@@ -33,6 +33,7 @@
 Команда для взлому паролів через brute-force: hashcat64.exe -a 3 -m 0 --force weak.csv
 
 Результати роботи:
+![bruteforce result](https://github.com/unicode368/CryptoLabs/blob/main/src/main/java/lab4/Capture.PNG)
 
 
  
