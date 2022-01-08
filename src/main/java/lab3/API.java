@@ -23,13 +23,15 @@ public class API {
         System.out.println(myObject);
     }
 
-    public void play(String id, int bet, long number) throws IOException, InterruptedException {
+    public int play(String id, int bet, long number) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder().uri(URI
                 .create(serverURL + "/playLcg?id=" + id + "&bet=" +
                         bet + "&number=" + number)).build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         JSONObject myObject = new JSONObject(response.body());
+        int realNumber = myObject.getInt("realNumber");
         System.out.println(myObject);
+        return realNumber;
     }
 }
