@@ -19,7 +19,10 @@ public class Main {
         */
         long x01 = -193188616L + 2065691657L;
         long x12 = -2065691657L - 1806891242L;
-        BigInteger a = new BigInteger("0");
+        long a = new BigInteger(String.valueOf(modInverse(x01,
+                (long) Math.pow(2, 32)))).multiply(new BigInteger(String.valueOf(x12)))
+                .mod(new BigInteger(String.valueOf((long) Math.pow(2, 32))))
+                .longValue();
        // long a =  (inverseA * a2) % (long) Math.pow(2, 32);
         //long c = 313310610 - 1582423745 * -851249410;
         //System.out.println(a543);
