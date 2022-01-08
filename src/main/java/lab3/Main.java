@@ -5,7 +5,7 @@ import java.math.BigInteger;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-        //new API().createAccount("63467");
+        new API().createAccount("63467");
         int x0 = new API().play("63467", 1, 1860214296);
         int x1 = new API().play("63467", 1, 1860214296);
         int x2 = new API().play("63467", 1, 1860214296);
@@ -23,6 +23,12 @@ public class Main {
         System.out.println(a);
         System.out.println(c);
         int next = new Lcg(x2, a, c).getNext();
+        int trueValue = new API().play("63467", 1, next);
+        if (trueValue != next) {
+            System.out.println("I really should just give up ._.");
+        } else {
+            System.out.println("Hooray!Lab works");
+        }
        // long a =  (inverseA * a2) % (long) Math.pow(2, 32);
         //long c = 313310610 - 1582423745 * -851249410;
         //System.out.println(a543);
