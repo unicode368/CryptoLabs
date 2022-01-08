@@ -12,13 +12,20 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("strongHash.csv"));
+    public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter("weakHash1.csv"));
+        BufferedWriter writer1 = new BufferedWriter(new FileWriter("notStrongHash1.csv"));
+        BufferedWriter writer2 = new BufferedWriter(new FileWriter("strongHash1.csv"));
+
         for (int i = 0; i < 100000; i++) {
-            writer.write(encryptBcrypt(new PasswordGenerator().generate()) + "\n");
+            writer.write(encrypt(new PasswordGenerator().generate(), "MD5") + "\n");
+            writer1.write(encrypt(new PasswordGenerator().generate(), "SHA-1") + "\n");
+            writer2.write(encryptBcrypt(new PasswordGenerator().generate()) + "\n");
         }
 
         writer.close();
+        writer1.close();
+        writer2.close();
     }
 
     public static String encrypt(String password, String algorithmName)
