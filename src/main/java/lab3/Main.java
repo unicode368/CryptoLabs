@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         //new API().createAccount("63467");
-        //new API().play("63467", 1, 352);
+        new API().play("63467", 1, 251157735);
         System.out.println();
         //{"money":1000,"deletionTime":"2022-01-08T14:03:50.9633993Z","id":"63467"}
         //{"realNumber":-2029718102,"message":"You lost this time","account":{"money":999,
