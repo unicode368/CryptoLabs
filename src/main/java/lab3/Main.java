@@ -17,14 +17,9 @@ public class Main {
           x1 = a * x0 + c (mod 2^32);
           x2 = a * x1 + c (mod 2^32);
         */
-        BigInteger x01 = new BigInteger(String.valueOf(-193188616))
-                .subtract(new BigInteger(String.valueOf(-2065691657)));
-        BigInteger x12 = new BigInteger(String.valueOf(-2065691657))
-                .subtract(new BigInteger(String.valueOf(1806891242)));
-        //long inverseA = modInverse(a1, (long) Math.pow(2, 32));
-        //System.out.println(a);
-        /*long a543 = (modInverse(a1,(long) Math.pow(2, 32))
-                % (long) Math.pow(2, 32) * (a2 % (long) Math.pow(2, 32))) % (long) Math.pow(2, 32);*/
+        long x01 = -193188616L + 2065691657L;
+        long x12 = -2065691657L - 1806891242L;
+        BigInteger a = new BigInteger("0");
        // long a =  (inverseA * a2) % (long) Math.pow(2, 32);
         //long c = 313310610 - 1582423745 * -851249410;
         //System.out.println(a543);
