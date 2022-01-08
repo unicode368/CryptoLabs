@@ -16,12 +16,13 @@ public class Main {
         long x01 = x0 - x1;
         long x12 = x1 - x2;
         long a = new BigInteger(String.valueOf(modInverse(x01,
-                (long) Math.pow(2, 32)))).multiply(new BigInteger(String.valueOf(x12)))
-                .mod(new BigInteger(String.valueOf((long) Math.pow(2, 32))))
+                Lcg.m))).multiply(new BigInteger(String.valueOf(x12)))
+                .mod(new BigInteger(String.valueOf(Lcg.m)))
                 .longValue();
         long c = -2065691657L + 193188616L * a;
         System.out.println(a);
         System.out.println(c);
+        int next = new Lcg(x2, a, c).getNext();
        // long a =  (inverseA * a2) % (long) Math.pow(2, 32);
         //long c = 313310610 - 1582423745 * -851249410;
         //System.out.println(a543);
