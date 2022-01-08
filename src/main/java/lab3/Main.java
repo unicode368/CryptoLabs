@@ -13,8 +13,8 @@ public class Main {
           x1 = a * x0 + c (mod 2^32);
           x2 = a * x1 + c (mod 2^32);
         */
-        long x01 = -193188616L + 2065691657L;
-        long x12 = -2065691657L - 1806891242L;
+        long x01 = x0 - x1;
+        long x12 = x1 - x2;
         long a = new BigInteger(String.valueOf(modInverse(x01,
                 (long) Math.pow(2, 32)))).multiply(new BigInteger(String.valueOf(x12)))
                 .mod(new BigInteger(String.valueOf((long) Math.pow(2, 32))))
