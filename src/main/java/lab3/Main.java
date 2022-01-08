@@ -5,10 +5,11 @@ import java.math.BigInteger;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-        //new API().createAccount("63467");
-        int x0 = new API().play("63467", 1, 1860214296);
-        int x1 = new API().play("63467", 1, 1860214296);
-        int x2 = new API().play("63467", 1, 1860214296);
+        String id = "6";
+        new API().createAccount(id);
+        int x0 = new API().play(id, 1, 1860214296);
+        int x1 = new API().play(id, 1, 1860214296);
+        int x2 = new API().play(id, 1, 1860214296);
         /*
           x1 = a * x0 + c (mod 2^32);
           x2 = a * x1 + c (mod 2^32);
@@ -22,14 +23,18 @@ public class Main {
         int c = (int) (-2065691657L + 193188616L * a);
         System.out.println(a);
         System.out.println(c);
-        int next = new Lcg(x2, a, c).getNext();
-        int trueValue = new API().play("63467", 1, next);
-        System.out.println(next);
+        for (int i = 10; i < 2000; i++) {
+            int next = new Lcg(x2, a, c).getNext();
+            int trueValue = new API().play(id, 1, next);
+            x2 = next;
+        }
+
+        /*System.out.println(next);
         if (trueValue != next) {
             System.out.println("I really should just give up ._.");
         } else {
             System.out.println("Hooray!Lab works");
-        }
+        }*/
        // long a =  (inverseA * a2) % (long) Math.pow(2, 32);
         //long c = 313310610 - 1582423745 * -851249410;
         //System.out.println(a543);
