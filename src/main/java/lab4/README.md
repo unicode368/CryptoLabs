@@ -39,7 +39,11 @@
 Приблизно за 30 хвилин зі 65226 паролів було отримано 32657.
 Далі застосуємо dictionary-метод: hashcat64.exe -a 0 -m 0 --force weak.csv 10-million-password-list-top-1000000.txt
 
-Результати роботи: 
+Результати роботи:
+
+![dictionary result](https://github.com/unicode368/CryptoLabs/blob/main/src/main/java/lab4/Capture2.PNG)
+
+Dictionary-пошук впорався менше, ніж за 3 хвилини, і з 65226 паролів було знайдено 55390. 
 
 
  
