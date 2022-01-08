@@ -9,7 +9,9 @@ public class Main {
         System.out.println();
         //{"money":1000,"deletionTime":"2022-01-08T14:03:50.9633993Z","id":"63467"}
         //{"realNumber":-2029718102,"message":"You lost this time","account":{"money":999,
-        //        "deletionTime":"2022-01-08T14:03:50.9633993Z","id":"63467"}}
+        //        "deletionTime":"2022-01-08T14:03:50.9633993Z","id":"63467"}
+        //{"realNumber":254486785,"message":"You lost this time","account":
+        // {"money":998,"deletionTime":"2022-01-08T14:03:50.9633993Z","id":"63467"}}
         /*long a = (-677747287 + 998743310) * (modInverse((long) -998743310 - 1748853791,
                 (long) Math.pow(2, 32))) % (long) Math.pow(2, 32);
         System.out.println(a);*/
