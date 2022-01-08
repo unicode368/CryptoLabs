@@ -5,8 +5,8 @@ import java.math.BigInteger;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-        String id = "53636";
-        new API().createAccount(id);
+        String id = "54737";
+        //new API().createAccount(id);
         int x0 = new API().play(id, 1, 1860214296);
         int x1 = new API().play(id, 1, 1860214296);
         int x2 = new API().play(id, 1, 1860214296);
@@ -41,14 +41,19 @@ public class Main {
         long m0 = m;
         long y = 0, x = 1;
 
+
         if (m == 1)
             return 0;
 
-        while (a > 1) {
+        while (Math.abs(a) > 1) {
             long q = a / m;
             long t = m;
 
-            m = a % m;
+            //Java returns not the modulus but the remainder,
+            //which is bad for negative a, and there're plenty
+            //of negative a in total.
+            //This thing resolves the issue
+            m = (((a % m) + m) % m);
             a = t;
             t = y;
 
