@@ -13,10 +13,14 @@ public class Main {
         // "deletionTime":"2022-01-08T20:49:08.9668497Z","id":"63467"}}
         //x2: {"realNumber":1806891242,"message":"You lost this time","account":{"money":997,
         // "deletionTime":"2022-01-08T20:49:08.9668497Z","id":"63467"}}
-        BigInteger x01 = new BigInteger(String.valueOf(1323305433))
-                .subtract(new BigInteger(String.valueOf(2012014948)));
-        BigInteger x12 = new BigInteger(String.valueOf(2012014948))
-                .add(new BigInteger(String.valueOf(2093439629)));
+        /*
+          x1 = a * x0 + c (mod 2^32);
+          x2 = a * x1 + c (mod 2^32);
+        */
+        BigInteger x01 = new BigInteger(String.valueOf(-193188616))
+                .subtract(new BigInteger(String.valueOf(-2065691657)));
+        BigInteger x12 = new BigInteger(String.valueOf(-2065691657))
+                .subtract(new BigInteger(String.valueOf(1806891242)));
         //long inverseA = modInverse(a1, (long) Math.pow(2, 32));
         //System.out.println(a);
         /*long a543 = (modInverse(a1,(long) Math.pow(2, 32))
