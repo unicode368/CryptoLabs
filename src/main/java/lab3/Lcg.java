@@ -13,5 +13,12 @@ public class Lcg {
         this.c = c;
         last = current;
     }
-    
+
+    public int getNext() {
+        return (int) new BigInteger(String.valueOf(a))
+                .multiply(new BigInteger(String.valueOf(last)))
+                .add(new BigInteger(String.valueOf(c)))
+                .mod(new BigInteger(String.valueOf(m)))
+                .longValue();
+    }
 }
