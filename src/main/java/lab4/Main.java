@@ -33,7 +33,7 @@ public class Main {
         }
         String hash = new BigInteger(1,
                 digest.digest(password.getBytes())).toString(16);
-        while (hash.length() < 32 ){
+        while (hash.length() < 32 ) {
             hash = "0" + hash;
         }
         if (algorithmName.equals("SHA-1")) {
