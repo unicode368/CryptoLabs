@@ -30,7 +30,7 @@
 ## Part 2
 Слабкий хеш (md5) було взято з https://t.me/c/1664103404/1644.
 Для взлому паролів було застосовано утиліту hashcat (https://executeatwill.com/2019/02/11/Install-hashcat-on-windows/).
-Команда для взлому паролів через brute-force: hashcat64.exe -a 3 -m 0 --force weakHashes.csv
+Команда для взлому паролів через brute-force: hashcat64.exe -a 3 -m 0 --force weak.csv
 
 Результати роботи:
 
