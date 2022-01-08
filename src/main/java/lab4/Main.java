@@ -43,14 +43,11 @@ public class Main {
         while (hash.length() < 32 ) {
             hash = "0" + hash;
         }
-        if (algorithmName.equals("SHA-1")) {
-            return hash + "," + new String(salt, StandardCharsets.UTF_8);
-        }
         return hash;
     }
 
     public static String encryptBcrypt(String password) {
         String salt = BCrypt.gensalt();
-        return BCrypt.hashpw(password, salt) + "," + salt;
+        return BCrypt.hashpw(password, salt);
     }
 }
