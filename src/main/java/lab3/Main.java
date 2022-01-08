@@ -5,8 +5,12 @@ import java.math.BigInteger;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-        String id = "54737";
-        //new API().createAccount(id);
+        String id = "6536635";
+        new API().createAccount(id);
+        crackLcg(id);
+    }
+
+    public static void crackLcg(String id) {
         int x0 = new API().play(id, 1, 1860214296);
         int x1 = new API().play(id, 1, 1860214296);
         int x2 = new API().play(id, 1, 1860214296);
@@ -24,12 +28,6 @@ public class Main {
                 .mod(new BigInteger(String.valueOf(Lcg.m)));
         long a = subA.longValue();
         long c = subC.longValue();
-        System.out.println(modInverse(x01,
-                Lcg.m));
-        System.out.println(subA);
-        System.out.println(a);
-        System.out.println(subC);
-        System.out.println(c);
         for (int i = 0; i < 2; i++) {
             int next = new Lcg(x2, a, c).getNext();
             int trueValue = new API().play(id, 996, next);
