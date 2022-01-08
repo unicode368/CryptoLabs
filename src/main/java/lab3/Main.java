@@ -5,8 +5,8 @@ import java.math.BigInteger;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-        String id = "163";
-        //new API().createAccount(id);
+        String id = "53636";
+        new API().createAccount(id);
         int x0 = new API().play(id, 1, 1860214296);
         int x1 = new API().play(id, 1, 1860214296);
         int x2 = new API().play(id, 1, 1860214296);
@@ -16,12 +16,19 @@ public class Main {
         */
         long x01 = x0 - x1;
         long x12 = x1 - x2;
-        long a = (int) new BigInteger(String.valueOf(modInverse(x01,
+        BigInteger subA = new BigInteger(String.valueOf(modInverse(x01,
                 Lcg.m))).multiply(new BigInteger(String.valueOf(x12)))
-                .mod(new BigInteger(String.valueOf(Lcg.m)))
-                .longValue();
-        long c = (int)(-2065691657L + 193188616L * a);
+                .mod(new BigInteger(String.valueOf(Lcg.m)));
+        BigInteger subC = new BigInteger(String.valueOf(x1)).subtract(new BigInteger(String.valueOf(x0))
+                .multiply(new BigInteger(String.valueOf(subA))))
+                .mod(new BigInteger(String.valueOf(Lcg.m)));
+        long a = subA.longValue();
+        long c = subC.longValue();
+        System.out.println(modInverse(x01,
+                Lcg.m));
+        System.out.println(subA);
         System.out.println(a);
+        System.out.println(subC);
         System.out.println(c);
         for (int i = 0; i < 2; i++) {
             int next = new Lcg(x2, a, c).getNext();
