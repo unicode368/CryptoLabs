@@ -7,13 +7,14 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         String id = "6536635";
         new API().createAccount(id);
-        crackLcg(id);
+        //crackLcg(id);
+        crackMt(id);
     }
 
-    public static void crackLcg(String id) {
-        int x0 = new API().play(id, 1, 1860214296);
-        int x1 = new API().play(id, 1, 1860214296);
-        int x2 = new API().play(id, 1, 1860214296);
+    public static void crackLcg(String id) throws IOException, InterruptedException {
+        int x0 = new API().play(id, "Lcg",1, 1860214296);
+        int x1 = new API().play(id, "Lcg",1, 1860214296);
+        int x2 = new API().play(id, "Lcg",1, 1860214296);
         /*
           x1 = a * x0 + c (mod 2^32);
           x2 = a * x1 + c (mod 2^32);
@@ -30,10 +31,12 @@ public class Main {
         long c = subC.longValue();
         for (int i = 0; i < 2; i++) {
             int next = new Lcg(x2, a, c).getNext();
-            int trueValue = new API().play(id, 996, next);
+            int trueValue = new API().play(id, "Lcg",996, next);
             x2 = next;
         }
     }
+
+
 
     static long modInverse(long a, long m) {
         long m0 = m;
@@ -63,6 +66,10 @@ public class Main {
             x += m0;
 
         return x;
+    }
+
+    public static void crackMt(String id) throws IOException, InterruptedException {
+        int x0 = new API().play(id, "Mt",1, 1860214296);
     }
 
 
