@@ -2,11 +2,12 @@ package lab3;
 
 import java.io.IOException;
 import java.math.BigInteger;
+import java.time.Instant;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         String id = "6536635";
-        new API().createAccount(id);
+        //new API().createAccount(id);
         //crackLcg(id);
         crackMt(id);
     }
@@ -69,7 +70,8 @@ public class Main {
     }
 
     public static void crackMt(String id) throws IOException, InterruptedException {
-        int x0 = new API().play(id, "Mt",1, 1860214296);
+        //int x0 = new API().play(id, "Mt",1, 1860214296);
+        System.out.println(Instant.now().getEpochSecond());
     }
 
 
