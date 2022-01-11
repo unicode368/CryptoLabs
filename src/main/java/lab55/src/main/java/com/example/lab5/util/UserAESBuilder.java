@@ -1,6 +1,11 @@
 package com.example.lab5.util;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.nio.charset.StandardCharsets;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
@@ -19,7 +24,8 @@ public class UserAESBuilder {
 
     UserAESBuilder(String surname, String name, String patronimic,
                    String email, String phoneNumber) throws InvalidKeySpecException,
-            NoSuchAlgorithmException {
+            NoSuchAlgorithmException, IllegalBlockSizeException, InvalidKeyException,
+            BadPaddingException, InvalidAlgorithmParameterException, NoSuchPaddingException {
         this.salt1 = new String(AES.genRandomBytes(), StandardCharsets.UTF_8);
         this.salt2 = new String(AES.genRandomBytes(), StandardCharsets.UTF_8);
         this.salt3 = new String(AES.genRandomBytes(), StandardCharsets.UTF_8);
@@ -28,6 +34,6 @@ public class UserAESBuilder {
         this.vectorIV = new String(AES.genRandomBytes(), StandardCharsets.UTF_8);
         this.surname = AES.encrypt(AES.ALGORITHM, surname,
                 AES.getKeyFromPassword(AES.getPassword(PasswordType.SURNAME),
-                        salt1), );
+                        salt1), AES.getVector(vectorIV));
     }
 }
