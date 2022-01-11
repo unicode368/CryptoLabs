@@ -1,4 +1,4 @@
-package lab55.src.main.java.com.example.lab5.validation;
+package com.example.lab5.validation;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
