@@ -64,6 +64,24 @@ public class UserInfo {
         this.email = email;
     }
 
+    public UserInfo(String surname,
+                    String name, String patronimic,
+                    String phoneNumber, String email,
+                    String salt1, String salt2,
+                    String salt3, String salt4,
+                    String salt5) {
+        this.surname = surname;
+        this.name = name;
+        this.patronimic = patronimic;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.salt1 = salt1;
+        this.salt2 = salt2;
+        this.salt3 = salt3;
+        this.salt4 = salt4;
+        this.salt5 = salt5;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
