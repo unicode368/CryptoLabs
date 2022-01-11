@@ -6,6 +6,11 @@ import java.io.File;
 
 public class AES {
     public static String getPassword(PasswordType passwordType) {
+        File passwords
         return "";
+    }
+
+    public static String[] processFile(String location) {
+
     }
 }
