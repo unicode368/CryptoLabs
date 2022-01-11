@@ -17,6 +17,11 @@ import java.util.List;
 public class AES {
     public static String getPassword(PasswordType passwordType) {
         ArrayList<String> passwords = processFile("resources/my_config.txt");
+        switch (passwordType) {
+            case NAME:
+                break;
+            case LOGIN:
+        }
         return "";
     }
 
