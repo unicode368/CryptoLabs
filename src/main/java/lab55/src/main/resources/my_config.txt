@@ -3,3 +3,4 @@ name_password=RaffAngel1o
 patronimic_password=EasyData
 phone_number_password=ZhulikNyeVaruy
 email_password=FeyiWinks
+login_password=MersenneTwisterSx
