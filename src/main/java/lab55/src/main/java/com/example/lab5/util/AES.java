@@ -18,6 +18,7 @@ import java.nio.file.Paths;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.util.ArrayList;
@@ -67,9 +68,15 @@ public class AES {
         return new ArrayList<>();
     }
 
+    public static byte[] genRandomBytes() {
+        byte[] rand = new byte[16];
+        new SecureRandom().nextBytes(rand);
+        return rand;
+    }
+
     public static SecretKey getKeyFromPassword(String password, String salt)
             throws NoSuchAlgorithmException, InvalidKeySpecException {
-        
+
     }
 
     public static String encrypt(String algorithm, String input, SecretKey key,
