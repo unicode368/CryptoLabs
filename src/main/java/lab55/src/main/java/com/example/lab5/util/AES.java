@@ -20,7 +20,14 @@ public class AES {
         switch (passwordType) {
             case NAME:
                 break;
-            case LOGIN:
+            case SURNAME:
+                break;
+            case PATRONIMIC:
+                break;
+            case EMAIL:
+                break;
+            case PHONE_NUMBER:
+                break;
         }
         return "";
     }
