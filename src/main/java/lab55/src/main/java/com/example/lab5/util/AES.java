@@ -19,15 +19,30 @@ public class AES {
         ArrayList<String> passwords = processFile("resources/my_config.txt");
         switch (passwordType) {
             case NAME:
-                break;
+                return passwords.stream()
+                        .filter(line -> line.contains("name_password"))
+                        .findAny().get()
+                        .split("=")[1];
             case SURNAME:
-                break;
+                return passwords.stream()
+                        .filter(line -> line.contains("surname_password"))
+                        .findAny().get()
+                        .split("=")[1];
             case PATRONIMIC:
-                break;
+                return passwords.stream()
+                        .filter(line -> line.contains("patronimic_password"))
+                        .findAny().get()
+                        .split("=")[1];
             case EMAIL:
-                break;
+                return passwords.stream()
+                        .filter(line -> line.contains("email_password"))
+                        .findAny().get()
+                        .split("=")[1];
             case PHONE_NUMBER:
-                break;
+                return passwords.stream()
+                        .filter(line -> line.contains("phone_number_password"))
+                        .findAny().get()
+                        .split("=")[1];
         }
         return "";
     }
