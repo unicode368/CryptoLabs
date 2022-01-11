@@ -1,16 +1,9 @@
 package com.example.lab5.util;
 
-import org.apache.tomcat.util.http.fileupload.FileUtils;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.objenesis.SpringObjenesis;
-
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
