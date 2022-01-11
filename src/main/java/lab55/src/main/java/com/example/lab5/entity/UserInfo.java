@@ -33,6 +33,21 @@ public class UserInfo {
     @Column(name = "email")
     @NotEmpty
     private String email;
+    @Column(name = "salt1")
+    @NotEmpty
+    private String salt1;
+    @Column(name = "salt2")
+    @NotEmpty
+    private String salt2;
+    @Column(name = "salt3")
+    @NotEmpty
+    private String salt3;
+    @Column(name = "salt4")
+    @NotEmpty
+    private String salt4;
+    @Column(name = "salt5")
+    @NotEmpty
+    private String salt5;
 
     @OneToOne
     @MapsId
