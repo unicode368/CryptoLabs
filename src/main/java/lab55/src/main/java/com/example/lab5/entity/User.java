@@ -55,8 +55,8 @@ public class User implements UserDetails {
                 String vectorIv) {
         this.login = login;
         this.password = password;
-        this.vectorIv = vectorIv;
         this.blocked = false;
+        this.vectorIv = vectorIv;
     }
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

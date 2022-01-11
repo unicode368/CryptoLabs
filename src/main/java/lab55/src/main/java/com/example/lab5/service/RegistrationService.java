@@ -34,10 +34,14 @@ public class RegistrationService {
                     request.getEmail(), request.getPhoneNumber());
             return userService.signUpUser(new User(
                             request.getLogin(),
-                            bCryptPasswordEncoder.encode(request.getPassword())),
+                            bCryptPasswordEncoder.encode(request.getPassword()),
+                            encryptedData.getVectorIV()),
                     new UserInfo(encryptedData.getSurname(),
                             encryptedData.getName(), encryptedData.getPatronimic(),
-                            encryptedData.getPhoneNumber(), encryptedData.getEmail()), roleName);
+                            encryptedData.getPhoneNumber(), encryptedData.getEmail(),
+                            encryptedData.getSalt1(), encryptedData.getSalt2(),
+                            encryptedData.getSalt3(), encryptedData.getSalt4(),
+                            encryptedData.getSalt5()), roleName);
         } catch (InvalidKeySpecException |
                 NoSuchAlgorithmException | IllegalBlockSizeException
                 | InvalidKeyException | BadPaddingException | InvalidAlgorithmParameterException
