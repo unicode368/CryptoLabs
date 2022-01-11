@@ -6,6 +6,7 @@ import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.InvalidAlgorithmParameterException;
@@ -15,6 +16,7 @@ import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
 
@@ -61,6 +63,12 @@ public class AES {
             e.printStackTrace();
         }
         return new ArrayList<>();
+    }
+
+    public static IvParameterSpec getVector(String vectorString) {
+        byte[] vectorBytes = Arrays.copyOfRange(vectorString
+                .getBytes(StandardCharsets.UTF_8), 0, 16);
+        return new IvParameterSpec(vectorBytes);
     }
 
     public static byte[] genRandomBytes() {
