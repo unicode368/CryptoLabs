@@ -5,7 +5,7 @@ import org.springframework.core.io.ClassPathResource;
 import java.io.File;
 
 public class AES {
-    public static String getPassword() {
-
+    public static String getPassword(PasswordType passwordType) {
+        return "";
     }
 }
