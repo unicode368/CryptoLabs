@@ -40,10 +40,27 @@ public class User implements UserDetails {
     @Getter
     @Setter
     private Boolean blocked;
+    @Column(name = "salt")
+    @Getter
+    @Setter
+    private String salt;
+    @Column(name = "cloud_iv")
+    @Getter
+    @Setter
+    private String vectorIv;
 
     public User(String login, String password) {
         this.login = login;
         this.password = password;
+        this.blocked = false;
+    }
+
+    public User(String login, String password, String salt,
+                String vectorIv) {
+        this.login = login;
+        this.password = password;
+        this.salt = salt;
+        this.vectorIv = vectorIv;
         this.blocked = false;
     }
 
