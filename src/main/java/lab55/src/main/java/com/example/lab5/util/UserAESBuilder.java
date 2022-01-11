@@ -48,4 +48,48 @@ public class UserAESBuilder {
                 AES.getKeyFromPassword(AES.getPassword(PasswordType.PHONE_NUMBER),
                         salt5), AES.getVector(vectorIV));
     }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPatronimic() {
+        return patronimic;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getSalt1() {
+        return salt1;
+    }
+
+    public String getSalt2() {
+        return salt2;
+    }
+
+    public String getSalt3() {
+        return salt3;
+    }
+
+    public String getSalt4() {
+        return salt4;
+    }
+
+    public String getSalt5() {
+        return salt5;
+    }
+
+    public String getVectorIV() {
+        return vectorIV;
+    }
 }
