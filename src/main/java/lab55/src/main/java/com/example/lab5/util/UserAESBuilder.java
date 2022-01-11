@@ -22,8 +22,8 @@ public class UserAESBuilder {
     String salt5;
     String vectorIV;
 
-    UserAESBuilder(String surname, String name, String patronimic,
-                   String email, String phoneNumber) throws InvalidKeySpecException,
+    public UserAESBuilder(String surname, String name, String patronimic,
+                          String email, String phoneNumber) throws InvalidKeySpecException,
             NoSuchAlgorithmException, IllegalBlockSizeException, InvalidKeyException,
             BadPaddingException, InvalidAlgorithmParameterException, NoSuchPaddingException {
         this.salt1 = new String(AES.genRandomBytes(), StandardCharsets.UTF_8);
