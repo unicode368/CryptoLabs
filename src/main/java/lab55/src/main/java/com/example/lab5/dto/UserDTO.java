@@ -34,7 +34,7 @@ public class UserDTO {
 
     @NotNull
     @NotEmpty
-    @ValidPassword
+ //   @ValidPassword
     private String password;
     private String matchingPassword;
 
