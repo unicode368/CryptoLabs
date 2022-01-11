@@ -35,5 +35,17 @@ public class UserAESBuilder {
         this.surname = AES.encrypt(AES.ALGORITHM, surname,
                 AES.getKeyFromPassword(AES.getPassword(PasswordType.SURNAME),
                         salt1), AES.getVector(vectorIV));
+        this.name = AES.encrypt(AES.ALGORITHM, name,
+                AES.getKeyFromPassword(AES.getPassword(PasswordType.NAME),
+                        salt2), AES.getVector(vectorIV));
+        this.patronimic = AES.encrypt(AES.ALGORITHM, patronimic,
+                AES.getKeyFromPassword(AES.getPassword(PasswordType.PATRONIMIC),
+                        salt3), AES.getVector(vectorIV));
+        this.email = AES.encrypt(AES.ALGORITHM, email,
+                AES.getKeyFromPassword(AES.getPassword(PasswordType.EMAIL),
+                        salt4), AES.getVector(vectorIV));
+        this.phoneNumber = AES.encrypt(AES.ALGORITHM, phoneNumber,
+                AES.getKeyFromPassword(AES.getPassword(PasswordType.PHONE_NUMBER),
+                        salt5), AES.getVector(vectorIV));
     }
 }
