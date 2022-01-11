@@ -19,6 +19,7 @@ import java.util.Base64;
 import java.util.List;
 
 public class AES {
+    final static String ALGORITHM = "AES/CBC/PKCS5Padding";
     public static String getPassword(PasswordType passwordType) {
         ArrayList<String> passwords = processFile("resources/my_config.txt");
         switch (passwordType) {
