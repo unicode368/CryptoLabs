@@ -19,4 +19,11 @@ public class Mt {
     int lowerMask;
     int upperMask;
     int index;
+
+    public Mt(long[] MT) {
+        index = N;
+        lowerMask = (1 << R) - 1;
+        upperMask = (1 << W) - (1 << R);
+        this.MT = MT;
+    }
 }
