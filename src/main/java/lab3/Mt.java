@@ -14,7 +14,7 @@ public class Mt {
     final int C = 0xEFC60000;
     final int L = 18;
 
-    int[] MT = new int[N];
+    long[] MT = new long[N];
 
     int lowerMask;
     int upperMask;
