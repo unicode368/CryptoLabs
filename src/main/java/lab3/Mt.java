@@ -2,6 +2,9 @@ package lab3;
 
 public class Mt {
     final int N = 624;
+    //0, 2w - 1
+    //For a w-bit word length, the Mersenne Twister
+    // generates integers in the range [0, 2w - 1]. => unsigned integer
     final int W = 32;
     final int M = 397;
     final int R = 31;
@@ -26,4 +29,6 @@ public class Mt {
         upperMask = (1 << W) - (1 << R);
         this.MT = MT;
     }
+
+
 }
