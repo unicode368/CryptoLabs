@@ -15,4 +15,8 @@ public class Mt {
     final int L = 18;
 
     int[] MT = new int[N];
+
+    int lowerMask;
+    int upperMask;
+    int index;
 }
