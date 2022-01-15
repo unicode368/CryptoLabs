@@ -13,9 +13,9 @@ public class Main {
     }
 
     public static void crackLcg(String id) throws IOException, InterruptedException {
-        int x0 = new API().play(id, "Lcg",1, 1860214296);
-        int x1 = new API().play(id, "Lcg",1, 1860214296);
-        int x2 = new API().play(id, "Lcg",1, 1860214296);
+        int x0 = (int) new API().play(id, "Lcg",1, 1860214296);
+        int x1 = (int) new API().play(id, "Lcg",1, 1860214296);
+        int x2 = (int) new API().play(id, "Lcg",1, 1860214296);
         /*
           x1 = a * x0 + c (mod 2^32);
           x2 = a * x1 + c (mod 2^32);

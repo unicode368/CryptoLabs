@@ -16,6 +16,7 @@ public class Mt {
     final int T = 15;
     final int C = 0xEFC60000;
     final int L = 18;
+    final int F = 1812433253;
 
     long[] MT = new long[N];
 
@@ -23,12 +24,20 @@ public class Mt {
     int upperMask;
     int index;
 
-    public Mt(long[] MT) {
+    public Mt(long seed) {
         index = N;
         lowerMask = (1 << R) - 1;
         upperMask = (1 << W) - (1 << R);
-        this.MT = MT;
+        setSeed(seed);
     }
+
+    private void setSeed(long seed) {
+        MT[0] = seed;
+        for (int i = 1; i < N; i++) { // loop over each element
+            //MT[i] = lowest w bits of (F * (MT[i-1] ^ (MT[i-1] >> (W-2))) + i);
+        }
+    }
+
 
 
 }
