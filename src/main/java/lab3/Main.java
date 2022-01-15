@@ -32,7 +32,7 @@ public class Main {
         long c = subC.longValue();
         for (int i = 0; i < 2; i++) {
             int next = new Lcg(x2, a, c).getNext();
-            int trueValue = new API().play(id, "Lcg",996, next);
+            int trueValue = (int) new API().play(id, "Lcg",996, next);
             x2 = next;
         }
     }
