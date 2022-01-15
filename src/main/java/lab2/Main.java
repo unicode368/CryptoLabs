@@ -22,7 +22,7 @@ public class Main {
                 "390bcfac282f558a03b9df9dedcc43425244d268c0cfa61602918cbd848481bf3c5c1c47db7c660c63\n" +
                 "2f0cdfe464344e8650edc59daac3504b1710d56b89dce5011e8c90f6\n").split("\n");
         for (int i = 0; i < cipheredText.length; i++) {
-            
+
         }
     }
 }

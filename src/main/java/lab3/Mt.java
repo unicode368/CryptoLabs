@@ -34,7 +34,7 @@ public class Mt {
     private void setSeed(long seed) {
         MT[0] = seed;
         for (int i = 1; i < N; i++) { // loop over each element
-            //MT[i] = lowest w bits of (F * (MT[i-1] ^ (MT[i-1] >> (W-2))) + i);
+            MT[i] = (F * (MT[i-1] ^ (MT[i-1] >> (W-2))) + i) >> W;
         }
     }
 
