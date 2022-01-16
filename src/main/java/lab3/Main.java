@@ -75,7 +75,9 @@ public class Main {
         //int x0 = new API().play(id, "Mt",1, 1860214296);
         MersenneTwister mt = new MersenneTwister(Instant.now().getEpochSecond());
         for (int i = 0; i < 100; i++) {
-            System.out.println(getUnsignedInt(mt.nextInt()));
+            int aaaaaaaaa = mt.nextInt();
+            System.out.println("{ 1: " + aaaaaaaaa);
+            System.out.println("2:" + getUnsignedInt(aaaaaaaaa) + " }");
         }
        // System.out.println(Instant.now().getEpochSecond());
     }
