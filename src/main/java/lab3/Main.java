@@ -77,19 +77,19 @@ public class Main {
     }
 
     public static void crackMt(String id) throws IOException, InterruptedException {
-        long res = new API().play(id, "Mt",1, 3254542)
-                .getRealNumber();
+        ResultDTO res = new API().play(id, "Mt",1, 3254542);
         //long timeStamp = new API().play(id, "Mt",1, 3254542)
         //        .getDeletionTime();
-        long timeStamp = Instant.now().toEpochMilli();
+        int timeStamp = (int) Instant.now().toEpochMilli();
         for (int i = -10; i <= 10; i++) {
-            MersenneTwister mt = new MersenneTwister(timeStamp + i);
+            MersenneTwister mt = new MersenneTwister(getUnsignedInt(timeStamp + i));
             int aaaaaaaaa = mt.nextInt();
                 //new API().play(id, "Mt",1, getUnsignedInt(aaaaaaaaa));
                 //System.out.println(getUnsignedInt(aaaaaaaaa));
                // System.out.println(".");
-            if (getUnsignedInt(aaaaaaaaa) == res) {
-                System.out.println("it works");
+            if (getUnsignedInt(aaaaaaaaa) == res.getRealNumber()) {
+                System.out.println("it works???");
+                new API().play(id, "Mt",1, getUnsignedInt(mt.nextInt()));
             }
         }
         //System.out.println(Timestamp.valueOf("2022-01-16 01:26:09.5096951")
