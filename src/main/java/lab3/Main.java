@@ -4,6 +4,7 @@ import org.apache.commons.math3.random.MersenneTwister;
 
 import java.io.IOException;
 import java.math.BigInteger;
+import java.sql.Timestamp;
 import java.time.Instant;
 
 public class Main {
@@ -72,7 +73,8 @@ public class Main {
     }
 
     public static void crackMt(String id) throws IOException, InterruptedException {
-        MersenneTwister mt = new MersenneTwister(Instant.now().getEpochSecond() - 3600);
+        MersenneTwister mt = new MersenneTwister(Instant.now().getEpochSecond() -
+                Timestamp.valueOf("2022-01-16 01:26:09.5096951").getTime());
         int aaaaaaaaa = mt.nextInt();
         new API().play(id, "Mt",1, getUnsignedInt(aaaaaaaaa));
         System.out.println(getUnsignedInt(aaaaaaaaa));
