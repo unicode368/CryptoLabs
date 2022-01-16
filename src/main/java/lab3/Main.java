@@ -1,5 +1,7 @@
 package lab3;
 
+import org.apache.commons.math3.random.MersenneTwister;
+
 import java.io.IOException;
 import java.math.BigInteger;
 import java.time.Instant;
@@ -71,7 +73,11 @@ public class Main {
 
     public static void crackMt(String id) throws IOException, InterruptedException {
         //int x0 = new API().play(id, "Mt",1, 1860214296);
-        System.out.println(Instant.now().getEpochSecond());
+        MersenneTwister mt = new MersenneTwister(Instant.now().getEpochSecond());
+        for (int i = 0; i < 100; i++) {
+            System.out.println(mt.nextInt());
+        }
+       // System.out.println(Instant.now().getEpochSecond());
     }
 
 
