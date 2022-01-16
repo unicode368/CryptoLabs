@@ -72,13 +72,12 @@ public class Main {
     }
 
     public static void crackMt(String id) throws IOException, InterruptedException {
-        for (int i = 10; i >= -10; i--) {
-            MersenneTwister mt = new MersenneTwister(Instant.now().getEpochSecond() + i);
-            int aaaaaaaaa = mt.nextInt();
-            new API().play(id, "Mt",1, getUnsignedInt(aaaaaaaaa));
-            //System.out.println("{ 1: " + aaaaaaaaa);
-           // System.out.println("2:" + getUnsignedInt(aaaaaaaaa) + " }");
-        }
+        MersenneTwister mt = new MersenneTwister(Instant.now().getEpochSecond() - 3600);
+        int aaaaaaaaa = mt.nextInt();
+        new API().play(id, "Mt",1, getUnsignedInt(aaaaaaaaa));
+        System.out.println(getUnsignedInt(aaaaaaaaa));
+        //System.out.println("{ 1: " + aaaaaaaaa);
+        // System.out.println("2:" + getUnsignedInt(aaaaaaaaa) + " }");
        // System.out.println(Instant.now().getEpochSecond());
     }
 
