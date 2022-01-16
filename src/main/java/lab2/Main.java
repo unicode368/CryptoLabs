@@ -25,15 +25,25 @@ public class Main {
                 "390bcfac282f558a03b9df9dedcc43425244d268c0cfa61602918cbd848481bf3c5c1c47db7c660c63\n" +
                 "2f0cdfe464344e8650edc59daac3504b1710d56b89dce5011e8c90f6\n").split("\n");
         String[] candidates = new String[cipheredText.length];
-        byte[] key = xorWithKey(cipheredText[1].getBytes(),
+        byte[] key = xorWithKey(hexStringToByteArray(cipheredText[1]),
                 plainText.getBytes(StandardCharsets.UTF_8));
         for (int j = 0; j < cipheredText.length; j++) {
             /*byte[] xoredEncryptedStrings = xorWithKey(cipheredText[j].getBytes(),
                     cipheredText[j + 1].getBytes());*/
-            String xoredWithPlainText = new String(xorWithKey(cipheredText[j].getBytes(),
+            String xoredWithPlainText = new String(xorWithKey(hexStringToByteArray(cipheredText[j]),
                     key), StandardCharsets.UTF_8);
             System.out.println(xoredWithPlainText);
         }
+    }
+
+    public static byte[] hexStringToByteArray(String s) {
+        int len = s.length();
+        byte[] data = new byte[len / 2];
+        for (int i = 0; i < len; i += 2) {
+            data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4)
+                    + Character.digit(s.charAt(i+1), 16));
+        }
+        return data;
     }
 
     private static byte[] xorWithKey(byte[] a, byte[] key) {
