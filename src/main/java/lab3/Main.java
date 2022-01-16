@@ -80,7 +80,7 @@ public class Main {
         ResultDTO res = new API().play(id, "Mt",1, 3254542);
         //long timeStamp = new API().play(id, "Mt",1, 3254542)
         //        .getDeletionTime();
-        int timeStamp = (int) Instant.now().toEpochMilli();
+        int timeStamp = (int) Instant.now().getEpochSecond();
         for (int i = -10; i <= 10; i++) {
             MersenneTwister mt = new MersenneTwister(getUnsignedInt(timeStamp + i));
             int aaaaaaaaa = mt.nextInt();
