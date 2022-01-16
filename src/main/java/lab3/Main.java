@@ -81,15 +81,21 @@ public class Main {
         //long timeStamp = new API().play(id, "Mt",1, 3254542)
         //        .getDeletionTime();
         int timeStamp = (int) Instant.now().getEpochSecond();
-        for (int i = -10; i <= 10; i++) {
-            MersenneTwister mt = new MersenneTwister(getUnsignedInt(timeStamp + i));
-            int aaaaaaaaa = mt.nextInt();
+        for (int i = -360000; i <= 360000; i++) {
+            MersenneTwister mt = new MersenneTwister(timeStamp + i);
+            for (int j = 0; j < 700; j++) {
+                int aaaaaaaaa = mt.nextInt();
                 //new API().play(id, "Mt",1, getUnsignedInt(aaaaaaaaa));
                 //System.out.println(getUnsignedInt(aaaaaaaaa));
-               // System.out.println(".");
-            if (getUnsignedInt(aaaaaaaaa) == res.getRealNumber()) {
-                System.out.println("it works???");
-                new API().play(id, "Mt",1, getUnsignedInt(mt.nextInt()));
+                // System.out.println(".");
+                //{"realNumber":317117367,"message":"Yay! It's different from
+                // the first one: https://docs.google.com/document/d/1_W00GZXLNTk6BM
+                // L6jEaAJDqwMVjaQUv5WL1DCW7ipy4/edit","account":{"money":41792083,
+                // "deletionTime":"2022-01-16T13:38:54.7809208Z","id":"6536635"}}
+                if (getUnsignedInt(aaaaaaaaa) == res.getRealNumber()) {
+                    System.out.println("it works???");
+                    new API().play(id, "Mt",1, getUnsignedInt(mt.nextInt()));
+                }
             }
         }
         //System.out.println(Timestamp.valueOf("2022-01-16 01:26:09.5096951")
