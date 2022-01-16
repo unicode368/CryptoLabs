@@ -85,9 +85,6 @@ public class Main {
             MersenneTwister mt = new MersenneTwister(timeStamp + i);
             for (int j = 0; j < 624; j++) {
                 int aaaaaaaaa = mt.nextInt();
-                //new API().play(id, "Mt",1, getUnsignedInt(aaaaaaaaa));
-                //System.out.println(getUnsignedInt(aaaaaaaaa));
-                // System.out.println(".");
                 //{"realNumber":317117367,"message":"Yay! It's different from
                 // the first one: https://docs.google.com/document/d/1_W00GZXLNTk6BM
                 // L6jEaAJDqwMVjaQUv5WL1DCW7ipy4/edit - шоста лаба","account":{"money":41792083,
@@ -98,13 +95,6 @@ public class Main {
                 }
             }
         }
-        //System.out.println(Timestamp.valueOf("2022-01-16 01:26:09.5096951")
-        //        .getTime());
-       //System.out.println(Instant.now().getEpochSecond());
-
-        //System.out.println("{ 1: " + aaaaaaaaa);
-        // System.out.println("2:" + getUnsignedInt(aaaaaaaaa) + " }");
-       // System.out.println(Instant.now().getEpochSecond());
     }
 
     private static long getUnsignedInt(int x) {
