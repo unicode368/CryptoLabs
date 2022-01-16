@@ -82,7 +82,7 @@ public class Main {
         for (int i = -10; i <= 10; i++) {
             MersenneTwister mt = new MersenneTwister(timeStamp + i);
             int aaaaaaaaa = mt.nextInt();
-            new API().play(id, "Mt",1, getUnsignedInt(aaaaaaaaa));
+            //new API().play(id, "Mt",1, getUnsignedInt(aaaaaaaaa));
             System.out.println(getUnsignedInt(aaaaaaaaa));
         }
         //System.out.println(Timestamp.valueOf("2022-01-16 01:26:09.5096951")
