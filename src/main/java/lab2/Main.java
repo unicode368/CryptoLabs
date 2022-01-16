@@ -24,7 +24,6 @@ public class Main {
                 "2f0cdfe46d35498602e9df91f9c842061d569a6adbd8e701579397ac82d093f12c09034696787f0a\n" +
                 "390bcfac282f558a03b9df9dedcc43425244d268c0cfa61602918cbd848481bf3c5c1c47db7c660c63\n" +
                 "2f0cdfe464344e8650edc59daac3504b1710d56b89dce5011e8c90f6\n").split("\n");
-        String[] candidates = new String[cipheredText.length];
         byte[] key = xorWithKey(hexStringToByteArray(cipheredText[1]),
                 plainText.getBytes(StandardCharsets.UTF_8));
         for (int j = 0; j < cipheredText.length; j++) {
