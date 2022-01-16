@@ -10,7 +10,7 @@ import java.time.Instant;
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         String id = "6536635";
-        //new API().createAccount(id);
+        new API().createAccount(id);
         crackLcg(id);
         crackMt(id);
     }
@@ -77,16 +77,20 @@ public class Main {
     }
 
     public static void crackMt(String id) throws IOException, InterruptedException {
-        new API().play(id, "Mt",1, 3254542)
-                .getDeletionTime();
-        /*long timeStamp = new API().play(id, "Mt",1, 3254542)
-                .getDeletionTime();*/
+        long res = new API().play(id, "Mt",1, 3254542)
+                .getRealNumber();
+        //long timeStamp = new API().play(id, "Mt",1, 3254542)
+        //        .getDeletionTime();
         long timeStamp = Instant.now().getEpochSecond();
-        for (int i = -10; i <= 10; i++) {
-            MersenneTwister mt = new MersenneTwister(timeStamp + i);
+        MersenneTwister mt = new MersenneTwister(timeStamp);
+        for (int i = 0; i < 624; i++) {
             int aaaaaaaaa = mt.nextInt();
             //new API().play(id, "Mt",1, getUnsignedInt(aaaaaaaaa));
-            System.out.println(getUnsignedInt(aaaaaaaaa));
+            //System.out.println(getUnsignedInt(aaaaaaaaa));
+            System.out.println(".");
+            if (aaaaaaaaa == res) {
+                System.out.println("it works");
+            }
         }
         //System.out.println(Timestamp.valueOf("2022-01-16 01:26:09.5096951")
         //        .getTime());
