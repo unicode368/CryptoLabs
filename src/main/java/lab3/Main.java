@@ -81,7 +81,7 @@ public class Main {
         //long timeStamp = new API().play(id, "Mt",1, 3254542)
         //        .getDeletionTime();
         int timeStamp = (int) Instant.now().getEpochSecond();
-        for (int i = -360000; i <= 360000; i++) {
+        for (int i = -36000; i <= 36000; i++) {
             MersenneTwister mt = new MersenneTwister(timeStamp + i);
             for (int j = 0; j < 700; j++) {
                 int aaaaaaaaa = mt.nextInt();
