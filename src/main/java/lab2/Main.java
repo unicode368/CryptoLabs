@@ -37,9 +37,14 @@ public class Main {
     }
 
     private static byte[] xorWithKey(byte[] a, byte[] key) {
-        byte[] out = new byte[a.length];
+        byte[] out;
+        if (a.length < key.length) {
+            out = new byte[a.length];
+        } else {
+            out = new byte[key.length];
+        }
         for (int i = 0; i < a.length; i++) {
-            out[i] = (byte) (a[i] ^ key[i % key.length]);
+            out[i] = (byte) (a[i] ^ key[i]);
         }
         return out;
     }
