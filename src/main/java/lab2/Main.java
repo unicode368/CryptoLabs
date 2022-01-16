@@ -28,8 +28,6 @@ public class Main {
         byte[] key = xorWithKey(hexStringToByteArray(cipheredText[1]),
                 plainText.getBytes(StandardCharsets.UTF_8));
         for (int j = 0; j < cipheredText.length; j++) {
-            /*byte[] xoredEncryptedStrings = xorWithKey(cipheredText[j].getBytes(),
-                    cipheredText[j + 1].getBytes());*/
             String xoredWithPlainText = new String(xorWithKey(hexStringToByteArray(cipheredText[j]),
                     key), StandardCharsets.UTF_8);
             System.out.println(xoredWithPlainText);
