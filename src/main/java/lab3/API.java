@@ -33,8 +33,10 @@ public class API {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         JSONObject myObject = new JSONObject(response.body());
         long realNumber = myObject.getLong("realNumber");
-        long money = myObject.getLong("money");
-        long deletionTime = Timestamp.valueOf(myObject.getString("deletionTime")
+        long money = myObject.getJSONObject("account")
+                .getLong("money");
+        long deletionTime = Timestamp.valueOf(myObject.getJSONObject("account")
+                .getString("deletionTime")
                 .replace("T", " ")
                 .replace("Z", ""))
                 .getTime();

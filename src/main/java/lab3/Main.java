@@ -10,7 +10,7 @@ import java.time.Instant;
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         String id = "6536635";
-        new API().createAccount(id);
+        //new API().createAccount(id);
         crackLcg(id);
         crackMt(id);
     }
