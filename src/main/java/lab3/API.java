@@ -34,7 +34,9 @@ public class API {
         JSONObject myObject = new JSONObject(response.body());
         long realNumber = myObject.getLong("realNumber");
         long money = myObject.getLong("money");
-        long deletionTime = Timestamp.valueOf(myObject.getString("deletionTime"))
+        long deletionTime = Timestamp.valueOf(myObject.getString("deletionTime")
+                .replace("T", " ")
+                .replace("Z", ""))
                 .getTime();
         System.out.println(myObject);
         return new ResultDTO(realNumber, money, deletionTime);

@@ -77,9 +77,10 @@ public class Main {
     }
 
     public static void crackMt(String id) throws IOException, InterruptedException {
+        long timeStamp = new API().play(id, "Mt",1, 3254542)
+                .getDeletionTime();
         for (int i = -10; i <= 10; i++) {
-            MersenneTwister mt = new MersenneTwister(Timestamp.valueOf("2022-01-16 10:45:53.3028547")
-                            .getTime() + i);
+            MersenneTwister mt = new MersenneTwister(timeStamp + i);
             int aaaaaaaaa = mt.nextInt();
             new API().play(id, "Mt",1, getUnsignedInt(aaaaaaaaa));
             System.out.println(getUnsignedInt(aaaaaaaaa));
