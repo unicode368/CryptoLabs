@@ -84,17 +84,14 @@ public class Main {
         long timeStamp = Instant.now().getEpochSecond();
         for (int i = -10; i <= 10; i++) {
             MersenneTwister mt = new MersenneTwister(timeStamp + i);
-            for (int j = 0; j < 624; j++) {
-                int aaaaaaaaa = mt.nextInt();
+            int aaaaaaaaa = mt.nextInt();
                 //new API().play(id, "Mt",1, getUnsignedInt(aaaaaaaaa));
                 //System.out.println(getUnsignedInt(aaaaaaaaa));
                // System.out.println(".");
-                if (aaaaaaaaa == res) {
-                    System.out.println("it works");
-                }
+            if (aaaaaaaaa == res) {
+                System.out.println("it works");
             }
         }
-
         //System.out.println(Timestamp.valueOf("2022-01-16 01:26:09.5096951")
         //        .getTime());
        //System.out.println(Instant.now().getEpochSecond());
