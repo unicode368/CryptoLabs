@@ -1,9 +1,9 @@
 package lab3;
 
 public class ResultDTO {
-    long realNumber;
-    long money;
-    long deletionTime;
+    private long realNumber;
+    private long money;
+    private long deletionTime;
 
     ResultDTO(long realNumber, long money, long deletionTime) {
         this.realNumber = realNumber;
