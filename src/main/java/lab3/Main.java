@@ -9,9 +9,9 @@ import java.time.Instant;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-        String id = "6536636";
+        String id = "65366391";
         new API().createAccount(id);
-        crackLcg(id);
+        //crackLcg(id);
         crackMt(id);
     }
 
@@ -78,6 +78,7 @@ public class Main {
 
     public static void crackMt(String id) throws IOException, InterruptedException {
         ResultDTO res = new API().play(id, "Mt",1, 3254542);
+        long money = res.getMoney();
         //long timeStamp = new API().play(id, "Mt",1, 3254542)
         //        .getDeletionTime();
         int timeStamp = (int) Instant.now().getEpochSecond();
@@ -91,7 +92,11 @@ public class Main {
                 // "deletionTime":"2022-01-16T13:38:54.7809208Z","id":"6536635"}}
                 if (getUnsignedInt(aaaaaaaaa) == res.getRealNumber()) {
                     System.out.println("i = " + i + ", j = " + j);
-                    new API().play(id, "Mt",1, getUnsignedInt(mt.nextInt()));
+                    while (money < 1_000_000) {
+                        res = new API().play(id, "Mt",100, getUnsignedInt(mt.nextInt()));
+                        money += res.getMoney();
+                    }
+
                 }
             }
         }
