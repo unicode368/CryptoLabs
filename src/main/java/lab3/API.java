@@ -5,6 +5,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.sql.Timestamp;
+
 import org.json.JSONObject;
 
 public class API {
@@ -23,7 +25,7 @@ public class API {
         System.out.println(myObject);
     }
 
-    public long play(String id, String mode, int bet, long number) throws IOException, InterruptedException {
+    public ResultDTO play(String id, String mode, int bet, long number) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder().uri(URI
                 .create(serverURL + "/play" + mode + "?id=" + id + "&bet=" +
@@ -31,7 +33,10 @@ public class API {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         JSONObject myObject = new JSONObject(response.body());
         long realNumber = myObject.getLong("realNumber");
+        long money = myObject.getLong("money");
+        long deletionTime = Timestamp.valueOf(myObject.getString("deletionTime"))
+                .getTime();
         System.out.println(myObject);
-        return realNumber;
+        return new ResultDTO(realNumber, money, deletionTime);
     }
 }
