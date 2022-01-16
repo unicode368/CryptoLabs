@@ -81,9 +81,9 @@ public class Main {
         //long timeStamp = new API().play(id, "Mt",1, 3254542)
         //        .getDeletionTime();
         int timeStamp = (int) Instant.now().getEpochSecond();
-        for (int i = -36000; i <= 36000; i++) {
+        for (int i = -5000; i <= 5000; i++) {
             MersenneTwister mt = new MersenneTwister(timeStamp + i);
-            for (int j = 0; j < 700; j++) {
+            for (int j = 0; j < 624; j++) {
                 int aaaaaaaaa = mt.nextInt();
                 //new API().play(id, "Mt",1, getUnsignedInt(aaaaaaaaa));
                 //System.out.println(getUnsignedInt(aaaaaaaaa));
@@ -93,7 +93,7 @@ public class Main {
                 // L6jEaAJDqwMVjaQUv5WL1DCW7ipy4/edit","account":{"money":41792083,
                 // "deletionTime":"2022-01-16T13:38:54.7809208Z","id":"6536635"}}
                 if (getUnsignedInt(aaaaaaaaa) == res.getRealNumber()) {
-                    System.out.println("it works???");
+                    System.out.println("i = " + i + ", j = " + j);
                     new API().play(id, "Mt",1, getUnsignedInt(mt.nextInt()));
                 }
             }
