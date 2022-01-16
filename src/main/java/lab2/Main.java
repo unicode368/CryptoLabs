@@ -1,5 +1,7 @@
 package lab2;
 
+import java.nio.charset.StandardCharsets;
+
 public class Main {
     public static void main(String[] args) {
         String[] cipheredText = ("280dc9e47f3352c307f6d894ee8d534313429a79c1d8a6021f8a8eabca919cfb685a0d468973625e757490daa981ea6b\n" +
@@ -21,8 +23,18 @@ public class Main {
                 "2f0cdfe46d35498602e9df91f9c842061d569a6adbd8e701579397ac82d093f12c09034696787f0a\n" +
                 "390bcfac282f558a03b9df9dedcc43425244d268c0cfa61602918cbd848481bf3c5c1c47db7c660c63\n" +
                 "2f0cdfe464344e8650edc59daac3504b1710d56b89dce5011e8c90f6\n").split("\n");
-        for (int i = 0; i < cipheredText.length; i++) {
-
+        for (int i = 0; i < cipheredText.length - 1; i++) {
+            String xoredEncryptedStrings = new String(xorWithKey(cipheredText[i].getBytes(),
+                    cipheredText[i + 1].getBytes()), StandardCharsets.UTF_8);
+            System.out.println(xoredEncryptedStrings);
         }
+    }
+
+    private static byte[] xorWithKey(byte[] a, byte[] key) {
+        byte[] out = new byte[a.length];
+        for (int i = 0; i < a.length; i++) {
+            out[i] = (byte) (a[i] ^ key[i%key.length]);
+        }
+        return out;
     }
 }
