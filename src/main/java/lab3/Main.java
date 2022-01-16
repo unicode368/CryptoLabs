@@ -9,7 +9,7 @@ import java.time.Instant;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-        String id = "6536635";
+        String id = "6536636";
         new API().createAccount(id);
         crackLcg(id);
         crackMt(id);
@@ -90,7 +90,7 @@ public class Main {
                 // System.out.println(".");
                 //{"realNumber":317117367,"message":"Yay! It's different from
                 // the first one: https://docs.google.com/document/d/1_W00GZXLNTk6BM
-                // L6jEaAJDqwMVjaQUv5WL1DCW7ipy4/edit","account":{"money":41792083,
+                // L6jEaAJDqwMVjaQUv5WL1DCW7ipy4/edit - шоста лаба","account":{"money":41792083,
                 // "deletionTime":"2022-01-16T13:38:54.7809208Z","id":"6536635"}}
                 if (getUnsignedInt(aaaaaaaaa) == res.getRealNumber()) {
                     System.out.println("i = " + i + ", j = " + j);
