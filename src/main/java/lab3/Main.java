@@ -88,7 +88,7 @@ public class Main {
                 //new API().play(id, "Mt",1, getUnsignedInt(aaaaaaaaa));
                 //System.out.println(getUnsignedInt(aaaaaaaaa));
                // System.out.println(".");
-            if (aaaaaaaaa == res) {
+            if (getUnsignedInt(aaaaaaaaa) == res) {
                 System.out.println("it works");
             }
         }
