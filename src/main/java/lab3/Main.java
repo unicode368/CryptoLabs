@@ -16,9 +16,12 @@ public class Main {
     }
 
     public static void crackLcg(String id) throws IOException, InterruptedException {
-        int x0 = (int) new API().play(id, "Lcg",1, 1860214296);
-        int x1 = (int) new API().play(id, "Lcg",1, 1860214296);
-        int x2 = (int) new API().play(id, "Lcg",1, 1860214296);
+        int x0 = (int) new API().play(id, "Lcg",1, 1860214296)
+                .getRealNumber();
+        int x1 = (int) new API().play(id, "Lcg",1, 1860214296)
+                .getRealNumber();
+        int x2 = (int) new API().play(id, "Lcg",1, 1860214296)
+                .getRealNumber();
         /*
           x1 = a * x0 + c (mod 2^32);
           x2 = a * x1 + c (mod 2^32);
@@ -35,7 +38,8 @@ public class Main {
         long c = subC.longValue();
         for (int i = 0; i < 2; i++) {
             int next = new Lcg(x2, a, c).getNext();
-            int trueValue = (int) new API().play(id, "Lcg",996, next);
+            int trueValue = (int) new API().play(id, "Lcg",996, next)
+                    .getRealNumber();
             x2 = next;
         }
     }
