@@ -4,7 +4,7 @@ import java.nio.charset.StandardCharsets;
 
 public class Main {
     public static void main(String[] args) {
-        String plainText = "I dont know what to write here";
+        String plainText = "The ";
         String[] cipheredText = ("280dc9e47f3352c307f6d894ee8d534313429a79c1d8a6021f8a8eabca919cfb685a0d468973625e757490daa981ea6b\n" +
                 "3a0a9cab782b4f8603eac28aadde1151005fd46a859df21d12c38eaa858596bf2548000e883d72117466c5c3a580f66b\n" +
                 "3a0adee4783a538403b9c29eaac958550242d3778ed9a61918959bf4ca849afa68450f5edc6e311a7f7ed1d7ec\n" +
@@ -37,7 +37,7 @@ public class Main {
     private static byte[] xorWithKey(byte[] a, byte[] key) {
         byte[] out = new byte[a.length];
         for (int i = 0; i < a.length; i++) {
-            out[i] = (byte) (a[i] ^ key[i%key.length]);
+            out[i] = (byte) (a[i] ^ key[i % key.length]);
         }
         return out;
     }
