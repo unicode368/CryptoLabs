@@ -26,9 +26,11 @@ public class Main {
                 "2f0cdfe464344e8650edc59daac3504b1710d56b89dce5011e8c90f6\n").split("\n");
         String[] candidates = new String[cipheredText.length];
         for (int i = 0; i < cipheredText.length - 1; i++) {
-            String xoredEncryptedStrings = new String(xorWithKey(cipheredText[i].getBytes(),
-                    cipheredText[i + 1].getBytes()), StandardCharsets.UTF_8);
-            System.out.println(xoredEncryptedStrings);
+            byte[] xoredEncryptedStrings = xorWithKey(cipheredText[i].getBytes(),
+                    cipheredText[i + 1].getBytes());
+            String xoredWithPlainText = new String(xorWithKey(xoredEncryptedStrings,
+                    plainText.getBytes()), StandardCharsets.UTF_8);
+            System.out.println(xoredWithPlainText);
         }
     }
 
