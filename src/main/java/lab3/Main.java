@@ -79,8 +79,6 @@ public class Main {
     public static void crackMt(String id) throws IOException, InterruptedException {
         ResultDTO res = new API().play(id, "Mt",1, 3254542);
         long money = res.getMoney();
-        //long timeStamp = new API().play(id, "Mt",1, 3254542)
-        //        .getDeletionTime();
         int timeStamp = (int) Instant.now().getEpochSecond();
         for (int i = -5000; i <= 5000; i++) {
             MersenneTwister mt = new MersenneTwister(timeStamp + i);
