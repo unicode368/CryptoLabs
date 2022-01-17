@@ -8,17 +8,17 @@ import java.util.stream.Collectors;
 public class ThirdPart {
     final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private int populationSize = 150;
-    private int crossoverCount = 100;
+    private int crossoverCount = 10;
     private int mutationsProb = 50;
 
     public String process(String encryptedText) {
         char[] chars = encryptedText.toCharArray();
 
-        HashMap<String, Double> bigrams = new HashMap<>();
+        HashMap<String, Integer> ngrams = new HashMap<>();
         Set<String> alphabets = new HashSet<>();
         String bestAlphabet = "";
         try {
-            bigrams = getBigrams();
+            ngrams = getNgrams();
         } catch (Exception e) {
             System.exit(1);
         }
@@ -74,21 +74,18 @@ public class ThirdPart {
     }
 
 
-    public HashMap<String, Double> getBigrams() throws IOException {
-        HashMap<String, Double> occurences = new HashMap<>();
-        int sum = 0;
+    public HashMap<String, Integer> getNgrams() throws IOException {
+        HashMap<String, Integer> occurences = new HashMap<>();
         String[] bigramsData = FileReader
-                .extractRawData("english_bigrams_1.txt",
+                .extractRawData("ngrams.txt",
                         Charset.defaultCharset()).split("\n");
         for (String row : bigramsData) {
             String[] values = row.split(" ");
-            occurences.put(values[0], Double.valueOf(values[1]));
-            sum += Double.valueOf(values[1]);
+            occurences.put(values[0], Integer.valueOf(values[1]));
         }
-        int finalSum = sum;
-        occurences.replaceAll((k, v) -> v / finalSum);
         return occurences;
     }
+    
 
     public String getRandomAlphabet() {
         String newAlphabet = "";
