@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class ThirdPart {
     final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private int populationSize = 150;
+    private int populationSize = 100;
     private int crossoverCount = 10;
     private double mutationsProb = 0.01;
 
@@ -61,14 +61,13 @@ public class ThirdPart {
         return alphabet;
     }
 
-    public double fitness(String decryptedText, HashMap<String, Double> bigrams) {
+    public double fitness(String decryptedText, HashMap<String, Integer> ngrams) {
         double fitness = 0;
         double count = 0;
         int i = 0;
-        double sum = 0;
-        double[] counts = new double[bigrams.size()];
+        double[] counts = new double[ngrams.size()];
 
-        for (Map.Entry<String, Double> entry : bigrams.entrySet()) {
+        for (Map.Entry<String, Integer> entry : ngrams.entrySet()) {
             String str = entry.getKey();
             int lastIndex = 0;
             count = 0;
@@ -84,12 +83,11 @@ public class ThirdPart {
             }
             counts[i] = count;
             i++;
-            sum = count;
         }
         i = 0;
-        for (Double value : bigrams.values()) {
+        /*for (Integer value : ngrams.values()) {
             fitness += Math.pow(value - counts[i] / sum, 2);
-        }
+        }*/
         return fitness;
     }
 
