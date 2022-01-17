@@ -45,5 +45,5 @@ server.ssl.ciphers=TLS_AES_128_GCM_SHA256
         return tomcat;
     }
 Після всіх проведених операцій маємо:
- 
+![self-signed cert](https://github.com/unicode368/CryptoLabs/blob/main/src/main/java/lab5-6-7/photo_2022-01-11_23-52-45.jpg)
  
