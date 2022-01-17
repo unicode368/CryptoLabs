@@ -41,6 +41,26 @@ public class ThirdPart {
         return textForDecryption;
     }
 
+    public String mutation(String alphabet) {
+        System.out.println("Performing mutation for alphabet " + alphabet);
+        String[] letters = alphabet.split("");
+        String a = letters[new Random().nextInt(27)];
+        String b = letters[new Random().nextInt(27)];
+        while (a.equals(b)) {
+            b = alphabet.split("")[new Random().nextInt(27)];
+        }
+        for (int i = 0; i < letters.length; i++) {
+            if (letters[i].equals(a)) {
+                letters[i] = b;
+            } else if (letters[i].equals(b)) {
+                letters[i] = a;
+            }
+        }
+        alphabet = String.join("", letters);
+        System.out.println("Alphabet after mutation: " + alphabet);
+        return alphabet;
+    }
+
     public double fitness(String decryptedText, HashMap<String, Double> bigrams) {
         double fitness = 0;
         double count = 0;
@@ -85,7 +105,7 @@ public class ThirdPart {
         }
         return occurences;
     }
-    
+
 
     public String getRandomAlphabet() {
         String newAlphabet = "";
