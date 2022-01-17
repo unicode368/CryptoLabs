@@ -12,6 +12,8 @@ public class ThirdPart {
     private double mutationsProb = 0.01;
     private final int MAX_GENERATION = 30;
 
+
+
     public String process(String encryptedText) {
         char[] chars = encryptedText.toCharArray();
 
@@ -30,7 +32,12 @@ public class ThirdPart {
         Set<String> newIndividuals;
         while (generation < MAX_GENERATION) {
             alphabets = getTheFittest(alphabets);
-            newIndividuals = crossover(alphabets., )
+            String alphabet1 = getAlphabetForCrossover(alphabets);
+            String alphabet2 = getAlphabetForCrossover(alphabets);
+            while (alphabet1.equals(alphabet2)) {
+                alphabet2 = getAlphabetForCrossover(alphabets);
+            }
+            newIndividuals = crossover(alphabet1, alphabet2);
             generation++;
         }
 
@@ -43,6 +50,18 @@ public class ThirdPart {
 
     public Set<String> crossover(String alphabet1, String alphabet2) {
         return new HashSet<>();
+    }
+
+    public String getAlphabetForCrossover(Set<String> alphabets) {
+        int size = alphabets.size();
+        int item = new Random().nextInt(size);
+        int i = 0;
+        for(String randAlphabet : alphabets) {
+            if (i == item)
+                return randAlphabet;
+            i++;
+        }
+        return null;
     }
 
     public String decrypt(String textForDecryption, String randomAlphabet) {
