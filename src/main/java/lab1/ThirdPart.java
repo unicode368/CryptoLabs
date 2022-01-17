@@ -7,25 +7,26 @@ import java.util.stream.Collectors;
 
 public class ThirdPart {
     final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private int populationSize = 100;
+    private final int POPULATION_SIZE = 100;
     private int crossoverCount = 10;
     private double mutationsProb = 0.01;
     private final int MAX_GENERATION = 30;
+    HashMap<String, Integer> ngrams = new HashMap<>();
 
-
-
-    public String process(String encryptedText) {
-        char[] chars = encryptedText.toCharArray();
-
-        HashMap<String, Integer> ngrams = new HashMap<>();
-        Set<String> alphabets = new HashSet<>();
-        String bestAlphabet = "";
+    ThirdPart() {
         try {
             ngrams = getNgrams();
         } catch (Exception e) {
             System.exit(1);
         }
-        while (alphabets.size() < populationSize) {
+    }
+
+    public String process(String encryptedText) {
+        char[] chars = encryptedText.toCharArray();
+
+        Set<String> alphabets = new HashSet<>();
+        String bestAlphabet = "";
+        while (alphabets.size() < POPULATION_SIZE) {
             alphabets.add(getRandomAlphabet());
         }
         int generation = 0;
@@ -37,7 +38,15 @@ public class ThirdPart {
             while (alphabet1.equals(alphabet2)) {
                 alphabet2 = getAlphabetForCrossover(alphabets);
             }
-            newIndividuals = crossover(alphabet1, alphabet2);
+            while (alphabets.size() < POPULATION_SIZE) {
+                newIndividuals = crossover(alphabet1, alphabet2);
+                if (alphabets.size() == 99) {
+                    alphabets.add(newIndividuals.iterator()
+                                 .next());
+                } else {
+                    alphabets.addAll(newIndividuals);
+                }
+            }
             generation++;
         }
 
