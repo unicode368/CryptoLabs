@@ -11,7 +11,7 @@ public class ThirdPart {
     private int crossoverCount = 10;
     private double mutationsProb = 0.01;
     private final int MAX_GENERATION = 30;
-    HashMap<String, Integer> ngrams = new HashMap<>();
+    private HashMap<String, Integer> ngrams = new HashMap<>();
 
     ThirdPart() {
         try {
@@ -32,7 +32,7 @@ public class ThirdPart {
         int generation = 0;
         Set<String> newIndividuals;
         while (generation < MAX_GENERATION) {
-            alphabets = getTheFittest(alphabets);
+            alphabets = getTheFittest(alphabets, 90);
             String alphabet1 = getAlphabetForCrossover(alphabets);
             String alphabet2 = getAlphabetForCrossover(alphabets);
             while (alphabet1.equals(alphabet2)) {
@@ -49,11 +49,12 @@ public class ThirdPart {
             }
             generation++;
         }
-
-        return String.valueOf(chars);
+        String result = getTheFittest(alphabets, 1).iterator()
+                .next();
+        return decrypt(encryptedText, result);
     }
 
-    public Set<String> getTheFittest(Set<String> alphabets) {
+    public Set<String> getTheFittest(Set<String> alphabets, int count) {
         return new HashSet<>();
     }
 
