@@ -27,7 +27,23 @@ server.ssl.key-store-type=PKCS12
 server.ssl.key-alias=final-keystore
 server.ssl.ciphers=TLS_AES_128_GCM_SHA256
 Як cipherSuit було обрано TLS_AES_128_GCM_SHA256.
-Також необхідно здійснити конфігурацію для серверу Tomcat:
+Також необхідно здійснити конфігурацію для серверу Tomcat за допомогою наступного біна:
+@Bean
+    public ServletWebServerFactory servletContainer() {
+        TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory() {
+            @Override
+            protected void postProcessContext(Context context) {
+                SecurityConstraint securityConstraint = new SecurityConstraint();
+                securityConstraint.setUserConstraint("CONFIDENTIAL");
+                SecurityCollection collection = new SecurityCollection();
+                collection.addPattern("/*");
+                securityConstraint.addCollection(collection);
+                context.addConstraint(securityConstraint);
+            }
+        };
+
+        return tomcat;
+    }
 Після всіх проведених операцій маємо:
  
  
