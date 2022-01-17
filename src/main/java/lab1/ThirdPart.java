@@ -9,7 +9,7 @@ public class ThirdPart {
     final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private int populationSize = 150;
     private int crossoverCount = 10;
-    private int mutationsProb = 50;
+    private double mutationsProb = 0.01;
 
     public String process(String encryptedText) {
         char[] chars = encryptedText.toCharArray();
