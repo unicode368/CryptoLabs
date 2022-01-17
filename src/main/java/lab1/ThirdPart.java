@@ -27,11 +27,22 @@ public class ThirdPart {
             alphabets.add(getRandomAlphabet());
         }
         int generation = 0;
+        Set<String> newIndividuals;
         while (generation < MAX_GENERATION) {
+            alphabets = getTheFittest(alphabets);
+            newIndividuals = crossover(alphabets., )
             generation++;
         }
 
         return String.valueOf(chars);
+    }
+
+    public Set<String> getTheFittest(Set<String> alphabets) {
+        return new HashSet<>();
+    }
+
+    public Set<String> crossover(String alphabet1, String alphabet2) {
+        return new HashSet<>();
     }
 
     public String decrypt(String textForDecryption, String randomAlphabet) {
