@@ -10,6 +10,7 @@ public class ThirdPart {
     private int populationSize = 100;
     private int crossoverCount = 10;
     private double mutationsProb = 0.01;
+    private final int MAX_GENERATION = 30;
 
     public String process(String encryptedText) {
         char[] chars = encryptedText.toCharArray();
@@ -26,9 +27,9 @@ public class ThirdPart {
             alphabets.add(getRandomAlphabet());
         }
         int generation = 0;
-        /*while (generation < topPopulation) {
-
-        }*/
+        while (generation < MAX_GENERATION) {
+            generation++;
+        }
 
         return String.valueOf(chars);
     }
